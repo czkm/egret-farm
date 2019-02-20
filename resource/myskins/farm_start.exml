@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="farm_start" width="2250" height="1500" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ns1="*" xmlns:tween="egret.tween.*">
+	<w:Declarations>
+		<tween:TweenGroup/>
+	</w:Declarations>
+	<e:Scroller id="scroller" width="750" height="1334" anchorOffsetY="0" anchorOffsetX="0" left="0" top="0">
+		<e:Group id="viewportGroup" anchorOffsetX="0" width="1039.39" anchorOffsetY="0" height="1314" y="176">
+			<e:Image id="farm_land_bg" source="括地图_png" anchorOffsetX="0" anchorOffsetY="0" left="0" height="1500" width="2250" top="2"/>
+			<e:Image id="farm_zl" source="3_01_png" x="-2" y="0"/>
+			<e:Image id="farm_house" source="2_01_png" left="0" top="0"/>
+			<e:Image id="farm_man" source="4_03_png" x="238.94" y="229.5" anchorOffsetX="0" width="111.86" anchorOffsetY="0" height="188.39"/>
+			<e:Image id="farm_dog1" source="5_03_png" x="350.8" y="288.01" anchorOffsetX="0" width="100.8" anchorOffsetY="0" height="129.88"/>
+			<e:Image id="farm_dog2" source="6_06_png" x="180" y="361"/>
+			<e:Group id="farm_land_group" width="748" height="878" x="0" y="452" anchorOffsetX="0" anchorOffsetY="0">
+				<e:Component id="land_0" width="340" height="240" x="69.15" y="0" anchorOffsetX="0" anchorOffsetY="0" skinName="farm_land"/>
+				<e:Component id="land_1" width="340" height="240" x="273.68" y="96.49" anchorOffsetX="0" anchorOffsetY="0" skinName="farm_land" visible="false"/>
+				<e:Component id="land_2" width="340" height="240" x="-8" y="181.33" anchorOffsetX="0" anchorOffsetY="0" skinName="farm_land" visible="false"/>
+				<e:Component id="land_3" width="340" height="240" x="189.89" y="282.66" anchorOffsetX="0" anchorOffsetY="0" skinName="farm_land" scaleX="1" scaleY="1" visible="false"/>
+				<e:Component id="land_4" width="340" height="240" x="266.08" y="534.68" anchorOffsetX="0" anchorOffsetY="0" skinName="farm_land" scaleX="1" scaleY="1" visible="false"/>
+				<e:Component id="land_5" width="340" height="240" x="76" y="429.88" anchorOffsetX="0" anchorOffsetY="0" skinName="farm_land" scaleX="1" scaleY="1" visible="false"/>
+			</e:Group>
+		</e:Group>
+	</e:Scroller>
+</e:Skin>

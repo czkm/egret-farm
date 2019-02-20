@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="farm_land" width="340" height="240" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
+	<e:Image id="farm_land_normal" source="未开垦_png" anchorOffsetX="0" width="341.73" anchorOffsetY="0" height="188.94" left="0" bottom="0"/>
+	<e:Image id="farm_land_seed" source="10_03_png" left="0" bottom="0" right="0" visible="false"/>
+	<e:Image id="not_land" source="7_03_png" horizontalCenter="0" verticalCenter="27.5" visible="false"/>
+	<e:Image id="cai" source="cai_png" anchorOffsetY="0" height="238" anchorOffsetX="0" width="341" horizontalCenter="0.5" verticalCenter="3" visible="false"/>
+	<e:Group id="need_manage" x="131" y="33" width="71" height="85" visible="false">
+	</e:Group>
+	<e:Component id="need_anim" width="98" height="130" enabled="true" anchorOffsetX="0" anchorOffsetY="0" horizontalCenter="0" verticalCenter="-15" skinName="anim" visible="false"/>
+</e:Skin>

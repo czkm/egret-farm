@@ -1,0 +1,225 @@
+{
+	"groups": [
+		{
+			"keys": "checkbox_select_disabled_png,checkbox_select_down_png,checkbox_select_up_png,checkbox_unselect_png,selected_png,border_png,header_png,radiobutton_select_disabled_png,radiobutton_select_down_png,radiobutton_select_up_png,radiobutton_unselect_png,roundthumb_png,thumb_png,track_png,tracklight_png,handle_png,off_png,on_png,button_down_png,button_up_png,thumb_pb_png,track_pb_png,track_sb_png,bg_jpg,egret_icon_png,description_json,animation1_json,animation1_png,useroption_json,useroption_png,1_png,4_03_png,5_03_png,7_03_png,8_03_png,10_03_png,括地图_png,2_01_png,3_01_png,6_06_png,9_07_png,9_11_png,9_15_png",
+			"name": "preload"
+		}
+	],
+	"resources": [
+		{
+			"url": "assets/CheckBox/checkbox_select_disabled.png",
+			"type": "image",
+			"name": "checkbox_select_disabled_png"
+		},
+		{
+			"url": "assets/CheckBox/checkbox_select_down.png",
+			"type": "image",
+			"name": "checkbox_select_down_png"
+		},
+		{
+			"url": "assets/CheckBox/checkbox_select_up.png",
+			"type": "image",
+			"name": "checkbox_select_up_png"
+		},
+		{
+			"url": "assets/CheckBox/checkbox_unselect.png",
+			"type": "image",
+			"name": "checkbox_unselect_png"
+		},
+		{
+			"url": "assets/ItemRenderer/selected.png",
+			"type": "image",
+			"name": "selected_png"
+		},
+		{
+			"url": "assets/Panel/border.png",
+			"type": "image",
+			"name": "border_png"
+		},
+		{
+			"url": "assets/Panel/header.png",
+			"type": "image",
+			"name": "header_png"
+		},
+		{
+			"url": "assets/RadioButton/radiobutton_select_disabled.png",
+			"type": "image",
+			"name": "radiobutton_select_disabled_png"
+		},
+		{
+			"url": "assets/RadioButton/radiobutton_select_down.png",
+			"type": "image",
+			"name": "radiobutton_select_down_png"
+		},
+		{
+			"url": "assets/RadioButton/radiobutton_select_up.png",
+			"type": "image",
+			"name": "radiobutton_select_up_png"
+		},
+		{
+			"url": "assets/RadioButton/radiobutton_unselect.png",
+			"type": "image",
+			"name": "radiobutton_unselect_png"
+		},
+		{
+			"url": "assets/ScrollBar/roundthumb.png",
+			"type": "image",
+			"name": "roundthumb_png"
+		},
+		{
+			"url": "assets/Slider/thumb.png",
+			"type": "image",
+			"name": "thumb_png"
+		},
+		{
+			"url": "assets/Slider/track.png",
+			"type": "image",
+			"name": "track_png"
+		},
+		{
+			"url": "assets/Slider/tracklight.png",
+			"type": "image",
+			"name": "tracklight_png"
+		},
+		{
+			"url": "assets/ToggleSwitch/handle.png",
+			"type": "image",
+			"name": "handle_png"
+		},
+		{
+			"url": "assets/ToggleSwitch/off.png",
+			"type": "image",
+			"name": "off_png"
+		},
+		{
+			"url": "assets/ToggleSwitch/on.png",
+			"type": "image",
+			"name": "on_png"
+		},
+		{
+			"url": "assets/Button/button_down.png",
+			"type": "image",
+			"name": "button_down_png"
+		},
+		{
+			"url": "assets/Button/button_up.png",
+			"type": "image",
+			"name": "button_up_png"
+		},
+		{
+			"url": "assets/ProgressBar/thumb_pb.png",
+			"type": "image",
+			"name": "thumb_pb_png"
+		},
+		{
+			"url": "assets/ProgressBar/track_pb.png",
+			"type": "image",
+			"name": "track_pb_png"
+		},
+		{
+			"url": "assets/ScrollBar/track_sb.png",
+			"type": "image",
+			"name": "track_sb_png"
+		},
+		{
+			"url": "assets/bg.jpg",
+			"type": "image",
+			"name": "bg_jpg"
+		},
+		{
+			"url": "assets/egret_icon.png",
+			"type": "image",
+			"name": "egret_icon_png"
+		},
+		{
+			"name": "description_json",
+			"type": "json",
+			"url": "config/description.json"
+		},
+		{
+			"name": "animation1_json",
+			"type": "json",
+			"url": "assets/mysource/animation1.json"
+		},
+		{
+			"name": "animation1_png",
+			"type": "image",
+			"url": "assets/mysource/animation1.png"
+		},
+		{
+			"name": "useroption_json",
+			"type": "json",
+			"url": "assets/mysource/useroption.json"
+		},
+		{
+			"name": "useroption_png",
+			"type": "image",
+			"url": "assets/mysource/useroption.png"
+		},
+		{
+			"name": "1_png",
+			"type": "image",
+			"url": "assets/mysource/1.png"
+		},
+		{
+			"name": "4_03_png",
+			"type": "image",
+			"url": "assets/mysource/4_03.png"
+		},
+		{
+			"name": "5_03_png",
+			"type": "image",
+			"url": "assets/mysource/5_03.png"
+		},
+		{
+			"name": "7_03_png",
+			"type": "image",
+			"url": "assets/mysource/7_03.png"
+		},
+		{
+			"name": "8_03_png",
+			"type": "image",
+			"url": "assets/mysource/8_03.png"
+		},
+		{
+			"name": "10_03_png",
+			"type": "image",
+			"url": "assets/mysource/10_03.png"
+		},
+		{
+			"name": "括地图_png",
+			"type": "image",
+			"url": "assets/mysource/括地图.png"
+		},
+		{
+			"name": "2_01_png",
+			"type": "image",
+			"url": "assets/mysource/2_01.png"
+		},
+		{
+			"name": "3_01_png",
+			"type": "image",
+			"url": "assets/mysource/3_01.png"
+		},
+		{
+			"name": "6_06_png",
+			"type": "image",
+			"url": "assets/mysource/6_06.png"
+		},
+		{
+			"name": "9_07_png",
+			"type": "image",
+			"url": "assets/mysource/9_07.png"
+		},
+		{
+			"name": "9_11_png",
+			"type": "image",
+			"url": "assets/mysource/9_11.png"
+		},
+		{
+			"name": "9_15_png",
+			"type": "image",
+			"url": "assets/mysource/9_15.png"
+		}
+	]
+}
