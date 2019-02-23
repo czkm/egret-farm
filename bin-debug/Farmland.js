@@ -17,39 +17,38 @@ r.prototype = e.prototype, t.prototype = new r();
 //土地类
 var Farmland = (function (_super) {
     __extends(Farmland, _super);
-    function Farmland() {
+    function Farmland(CLid) {
         var _this = _super.call(this) || this;
         //土地默认
         _this.farm_land_normal = null;
-        //土地图片
-        _this.farm_land_seed = null;
-        //可扩地图片
-        _this.not_land = null;
-        //长菜图片
-        _this.cai = null;
-        //施肥操作需求等动画
-        _this.need_anim = null;
+        // //施肥操作需求等动画
+        // public need_anim: control_anim = null;
+        //创建时传入土地id
+        _this.CreateLandId = null;
         //ui对象组
         _this.ui_objs = new Array();
         //回调方法组
         _this.func_calls = new Array();
         _this.addEventListener(eui.UIEvent.COMPLETE, _this.OnComplete, _this);
         _this.skinName = "resource/myskins/farm_land.exml";
-        Farmland.need_srcs.push(ScType[0], ScType[1], ScType[2]);
+        // Farmland.need_srcs.push(ScType[0], ScType[1], ScType[2]);
+        _this.CreateLandId = CLid;
         return _this;
     }
     ;
     Farmland.prototype.OnComplete = function () {
         //创建动画
-        this.need_anim = new control_anim();
-        this.need_anim.skinName = "resource/myskins/anim.exml";
-        this.need_anim.x = 120;
-        this.need_anim.y = 40;
-        this.need_anim.start_anim();
-        this.addChild(this.need_anim);
-        this.ui_objs.push(this.farm_land_seed, this.not_land, this.cai, this.need_anim);
-        this.func_calls.push(this.land_handle, this.not_land_handle, this.cai_handle, this.anim_handle);
+        // this.need_anim = new control_anim();
+        // this.need_anim.skinName = "resource/myskins/anim.exml";
+        // this.need_anim.x = 120;
+        // this.need_anim.y = 40;
+        // this.need_anim.start_anim();
+        // this.addChild(this.need_anim);
+        // this.start_anim()
+        this.ui_objs.push(this.farm_land_normal);
+        this.func_calls.push(this.land_handle.bind(this, this, this));
         this.ClickEvent_Listerner(this.ui_objs, this.func_calls);
+        // this.farm_land_normal.addEventListener(egret.TouchEvent.TOUCH_TAP,this.land_anim.bind,this)
     };
     //点击注册事件方法[ui_objs:响应对象组 callbacks:回调方法组]
     Farmland.prototype.ClickEvent_Listerner = function (ui_objs, callbacks) {
@@ -64,36 +63,38 @@ var Farmland = (function (_super) {
     //土地处理
     Farmland.prototype.land_handle = function () {
         console.log("土地处理");
+        this.start_anim();
     };
-    //可扩地处理
-    Farmland.prototype.not_land_handle = function () {
-        console.log("可扩地处理");
-        //在事件监听的回调函数中this指向当前回调的对象
-        this.visible = false;
+    // //播放土地动画
+    // private land_anim(){
+    //      this.start_anim()
+    // }
+    //蔬菜动画开始
+    Farmland.prototype.start_anim = function () {
+        this.cai_anim.play(0);
     };
-    //菜处理
-    Farmland.prototype.cai_handle = function () {
-        console.log("菜菜处理");
-        this.visible = false;
+    //蔬菜动画停止
+    Farmland.prototype.end_anim = function () {
+        this.cai_anim.stop();
     };
+    // //可扩地处理
+    // private not_land_handle() {
+    //     console.log("可扩地处理");
+    //     //在事件监听的回调函数中this指向当前回调的对象
+    //     this.visible = false;
+    // }
+    // //菜处理
+    // private cai_handle() {
+    //     console.log("菜菜处理");
+    //     this.visible = false;
+    // }
     //资源图片更换
-    Farmland.prototype.change_picture = function (src, ui_obj) {
-        ui_obj.source = src;
-    };
+    // public change_picture(src: string, ui_obj: eui.Image) {
+    //     ui_obj.source = src;
+    // }
     //土地图片变化
     Farmland.prototype.change_Landpic = function (land_src) {
         this.farm_land_normal.source = land_src;
-    };
-    //施肥等动画处理
-    Farmland.prototype.anim_handle = function (event) {
-        console.log(event);
-        var curr = event.currentTarget;
-        Farmland.indexs += 1;
-        if (Farmland.indexs >= 3) {
-            Farmland.indexs = 0;
-        }
-        curr.change_image(Farmland.need_srcs[Farmland.indexs]);
-        console.log("动画处理");
     };
     //----静态成员----//
     //施肥等操作资源路径组

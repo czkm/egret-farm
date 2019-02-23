@@ -1,6 +1,6 @@
 {"mc":{
 	"狗子":{
-		"frameRate":24,
+		"frameRate":12,
 		"events":[
 			
 			],
@@ -108,7 +108,7 @@
 			}
 			]
 },"感叹号":{
-		"frameRate":24,
+		"frameRate":12,
 		"events":[
 			
 			],
@@ -171,7 +171,7 @@
 			}
 			]
 },"手套":{
-		"frameRate":24,
+		"frameRate":12,
 		"events":[
 			
 			],

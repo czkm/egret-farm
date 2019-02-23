@@ -1,7 +1,7 @@
 {
 	"groups": [
 		{
-			"keys": "checkbox_select_disabled_png,checkbox_select_down_png,checkbox_select_up_png,checkbox_unselect_png,selected_png,border_png,header_png,radiobutton_select_disabled_png,radiobutton_select_down_png,radiobutton_select_up_png,radiobutton_unselect_png,roundthumb_png,thumb_png,track_png,tracklight_png,handle_png,off_png,on_png,button_down_png,button_up_png,thumb_pb_png,track_pb_png,track_sb_png,bg_jpg,egret_icon_png,description_json,animation1_json,animation1_png,useroption_json,useroption_png,1_png,4_03_png,5_03_png,7_03_png,8_03_png,10_03_png,括地图_png,2_01_png,3_01_png,6_06_png,cai_png,bocai_1_png,luobo_0_png,luobo_1_png,卷心菜成熟期_03_png,卷心菜成长期_03_png,土豆成熟期_03_png,土豆成长期_03_png,幼苗_png,扩地_png,未开垦_png,生菜成熟期_03_png,生菜成长期_03_png,秋葵成熟期_03_png,秋葵成长期_03_png,种子_png,空心菜成熟期_03_png,空心菜成长期_03_png,花菜成熟期_03_png,花菜成长期_03_png,芹菜成熟期_03_png,芹菜成长期_03_png,茄子成熟期_03_png,茄子成长期_03_png,茼蒿成熟期_03_png,茼蒿成长期_03_png,莴苣成熟期_03_png,莴苣成长期_03_png,西红柿成熟期_03_png,西红柿成长期_03_png,豇豆成熟期_03_png,豇豆成长期_03_png,韭菜成熟期_03_png,韭菜成长期_03_png,鸡毛菜成熟期_03_png,鸡毛菜成长期_03_png,need_water_png,need_weed_png,need_fertilize_png,digua_1_png,digua_0_png,bocai_0_png",
+			"keys": "checkbox_select_disabled_png,checkbox_select_down_png,checkbox_select_up_png,checkbox_unselect_png,selected_png,border_png,header_png,radiobutton_select_disabled_png,radiobutton_select_down_png,radiobutton_select_up_png,radiobutton_unselect_png,roundthumb_png,thumb_png,track_png,tracklight_png,handle_png,off_png,on_png,button_down_png,button_up_png,thumb_pb_png,track_pb_png,track_sb_png,bg_jpg,egret_icon_png,description_json,animation1_json,animation1_png,useroption_json,useroption_png,1_png,4_03_png,5_03_png,7_03_png,8_03_png,10_03_png,括地图_png,2_01_png,3_01_png,6_06_png,cai_png,bocai_1_png,luobo_0_png,luobo_1_png,卷心菜成熟期_03_png,卷心菜成长期_03_png,土豆成熟期_03_png,土豆成长期_03_png,幼苗_png,扩地_png,未开垦_png,生菜成熟期_03_png,生菜成长期_03_png,秋葵成熟期_03_png,秋葵成长期_03_png,种子_png,空心菜成熟期_03_png,空心菜成长期_03_png,花菜成熟期_03_png,花菜成长期_03_png,芹菜成熟期_03_png,芹菜成长期_03_png,茄子成熟期_03_png,茄子成长期_03_png,茼蒿成熟期_03_png,茼蒿成长期_03_png,莴苣成熟期_03_png,莴苣成长期_03_png,西红柿成熟期_03_png,西红柿成长期_03_png,豇豆成长期_03_png,韭菜成熟期_03_png,韭菜成长期_03_png,鸡毛菜成熟期_03_png,鸡毛菜成长期_03_png,need_water_png,need_weed_png,need_fertilize_png,digua_1_png,digua_0_png,bocai_0_png,施肥_png,施肥_json,jiandou_1_png,8草地_png,未标题-1_03_png,4_06_png",
 			"name": "preload"
 		}
 	],
@@ -357,11 +357,6 @@
 			"url": "assets/mysource/蔬菜状态/西红柿成长期_03.png"
 		},
 		{
-			"name": "豇豆成熟期_03_png",
-			"type": "image",
-			"url": "assets/mysource/蔬菜状态/豇豆成熟期_03.png"
-		},
-		{
 			"name": "豇豆成长期_03_png",
 			"type": "image",
 			"url": "assets/mysource/蔬菜状态/豇豆成长期_03.png"
@@ -415,6 +410,36 @@
 			"name": "bocai_0_png",
 			"type": "image",
 			"url": "assets/mysource/蔬菜状态/bocai_0.png"
+		},
+		{
+			"name": "施肥_png",
+			"type": "image",
+			"url": "assets/mysource/施肥.png"
+		},
+		{
+			"name": "施肥_json",
+			"type": "json",
+			"url": "assets/mysource/施肥.json"
+		},
+		{
+			"name": "jiandou_1_png",
+			"type": "image",
+			"url": "assets/mysource/蔬菜状态/jiandou_1.png"
+		},
+		{
+			"name": "8草地_png",
+			"type": "image",
+			"url": "assets/mysource/蔬菜状态/8草地.png"
+		},
+		{
+			"name": "未标题-1_03_png",
+			"type": "image",
+			"url": "assets/mysource/蔬菜状态/未标题-1_03.png"
+		},
+		{
+			"name": "4_06_png",
+			"type": "image",
+			"url": "assets/mysource/蔬菜状态/4_06.png"
 		}
 	]
 }

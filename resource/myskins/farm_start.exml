@@ -12,7 +12,7 @@
 			<e:Image id="farm_dog1" source="5_03_png" x="350.8" y="288.01" anchorOffsetX="0" width="100.8" anchorOffsetY="0" height="129.88"/>
 			<e:Image id="farm_dog2" source="6_06_png" x="180" y="361"/>
 			<e:Group id="farm_land_group" width="748" height="878" x="0" y="452" anchorOffsetX="0" anchorOffsetY="0">
-				<e:Component id="land_0" width="340" height="240" x="69.15" y="0" anchorOffsetX="0" anchorOffsetY="0" skinName="farm_land"/>
+				<e:Component id="land_0" width="340" height="240" x="69.15" y="0" anchorOffsetX="0" anchorOffsetY="0" skinName="farm_land" visible="false"/>
 				<e:Component id="land_1" width="340" height="240" x="273.68" y="96.49" anchorOffsetX="0" anchorOffsetY="0" skinName="farm_land" visible="false"/>
 				<e:Component id="land_2" width="340" height="240" x="-8" y="181.33" anchorOffsetX="0" anchorOffsetY="0" skinName="farm_land" visible="false"/>
 				<e:Component id="land_3" width="340" height="240" x="189.89" y="282.66" anchorOffsetX="0" anchorOffsetY="0" skinName="farm_land" scaleX="1" scaleY="1" visible="false"/>

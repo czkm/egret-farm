@@ -22,8 +22,9 @@ class Farmstart extends eui.Component {
     public land_5: eui.Component;
 
 
-    public landenum = []
-    public landindex = []
+    public landType = []//土地状态数组
+    public optionType = [] //操作状态数组
+
     constructor() {
         super()
         this.addEventListener(eui.UIEvent.COMPLETE, this.complete_load, this);
@@ -40,13 +41,13 @@ class Farmstart extends eui.Component {
         this.scroller.bounces = false;
         this.scroller.horizontalScrollBar.autoVisibility = false;
         this.scroller.verticalScrollBar.autoVisibility = false;
-        this.scroller.viewport.scrollH = 740;
+        this.scroller.viewport.scrollH = 0;
 
 
         var request = new egret.HttpRequest();
         request.responseType = egret.HttpResponseType.TEXT;
         //设置为 POST 请求
-        request.open("http://172.16.0.108:8080/test", egret.HttpMethod.POST);
+        request.open("http://172.16.0.67:8001/future/num", egret.HttpMethod.POST);
         request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
         request.send(`1`);
         // request.addEventListener(egret.Event.COMPLETE, this.onPostComplete.bind( this,null, this.test), this);
@@ -65,46 +66,53 @@ class Farmstart extends eui.Component {
         // console.log(request)
         let res = JSON.parse(request.response);
 
-        console.log(res)
+        console.log(res.num)
+        console.log(res.num2)
+        //console.log(res.data)
 
         //1,2,1,3,1
-        this.landindex = res.data
-        for (var i = 0; i < res.data.length; i++) {
-            let landi = res.data[i]
-            console.log(landType[landi])
-            this.landenum.push(landType[landi])
 
+
+        for (var i = 0; i < res.num.length; i++) {
+            let landindex = res.num[i]
+            let optionindex = res.num2[i]
+
+            console.log(OptionType[optionindex])
+            console.log(landType[landindex])
+
+            this.landType.push(landType[landindex])
+            this.optionType.push(OptionType[optionindex])
         }
-        // }   
-        // let landArr = [1, 1, 2]
-        this.initLand(this.farm_land_group, this.landenum, this.landindex);
+
+        this.initLand(this.farm_land_group, this.landType, this.optionType);
+        // this.initanim(this.farm_land_group, this.optionType)
     }
 
 
     private complete_load() {
         // this.childrenCreated();
         //this.childrenCreated();
+        console.log("页面加载完成回调")
+        this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.globe_handle, this);
+
+
+
 
     }
+    //监听全局
+    private globe_handle(evt: egret.TouchEvent) {
+        console.log(evt)
+    }
 
-    // //展示土地
-    // private creatland(num): void {
-    //     for (var landindex = 0; landindex < num; landindex++) {
-    //         console.log(1)
-    //         this.farm_land_group.$children[landindex].visible = true
-    //     }
-
-
-    // }
 
     //初始化6土地
-    private initLand(parent: eui.Group, type, index) {
+    private initLand(parent: eui.Group, landtype, Optype) {
         // await this.landenum
         // await this.landindex
-        console.log(type)
-        console.log(index)
+        console.log(landtype)
 
-
+        let Xoff = 110
+        let Yoff = 110
 
         let pos: egret.Point[] = new Array(6);
         pos[0] = new egret.Point(69, 0);
@@ -114,22 +122,41 @@ class Farmstart extends eui.Component {
         pos[4] = new egret.Point(76, 429);
         pos[5] = new egret.Point(266, 534);
         for (let i = 0; i < pos.length; i++) {
-            let farmland: Farmland = new Farmland();
+            //创建农场土地
+            let farmland: Farmland = new Farmland(i);
+            //创建操作状态
+            let anim = new control_anim(1)
+
+            //设立坐标组
             farmland.x = pos[i].x;
             farmland.y = pos[i].y;
 
-            // console.log(this.landindex[i])
-            // console.log(this.landenum[i])
-            console.log(type[i])
+            anim.x = pos[i].x + Xoff;
+            anim.y = pos[i].y + Yoff;
+            console.log(landtype[i])
+            //通过枚举更改土地状态,操作状态
+            // farmland.change_Landpic(landtype[i])
+            anim.change_image(Optype[i])
 
-            farmland.change_Landpic(type[i])
 
-         
-              parent.addChild(farmland);
+            parent.addChild(farmland);
+            parent.addChild(anim);
+
+
+
+
+
+
+            console.log(farmland.CreateLandId)
+
+
+
         }
-      
+
         console.log("添加土地")
     }
+
+
 
 
 }

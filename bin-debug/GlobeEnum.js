@@ -12,10 +12,10 @@ var landType;
 })(landType || (landType = {}));
 ;
 //操作状态
-var ScType;
-(function (ScType) {
-    ScType[ScType["need_water_png"] = 0] = "need_water_png";
-    ScType[ScType["need_fertilize_png"] = 1] = "need_fertilize_png";
-    ScType[ScType["need_weed_png"] = 2] = "need_weed_png";
-})(ScType || (ScType = {}));
+var OptionType;
+(function (OptionType) {
+    OptionType[OptionType["need_water_png"] = 0] = "need_water_png";
+    OptionType[OptionType["need_fertilize_png"] = 1] = "need_fertilize_png";
+    OptionType[OptionType["need_weed_png"] = 2] = "need_weed_png";
+})(OptionType || (OptionType = {}));
 ;

@@ -1,10 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="farm_land" width="340" height="240" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
-	<e:Image id="farm_land_normal" source="未开垦_png" anchorOffsetX="0" width="341.73" anchorOffsetY="0" height="188.94" left="0" bottom="0"/>
-	<e:Image id="farm_land_seed" source="10_03_png" left="0" bottom="0" right="0" visible="false"/>
-	<e:Image id="not_land" source="7_03_png" horizontalCenter="0" verticalCenter="27.5" visible="false"/>
-	<e:Image id="cai" source="cai_png" anchorOffsetY="0" height="238" anchorOffsetX="0" width="341" horizontalCenter="0.5" verticalCenter="3" visible="false"/>
-	<e:Group id="need_manage" x="131" y="33" width="71" height="85" visible="false">
-	</e:Group>
+<e:Skin class="farm_land" width="340" height="354" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:tween="egret.tween.*">
+	<w:Declarations>
+		<tween:TweenGroup id="cai_anim">
+			<tween:TweenItem target="{farm_land_normal}">
+				<tween:Set>
+					<tween:props>
+						<e:Object x="{-1}" height="{36.94}" y="{203.06}" width="{332.73}" alpha="{0.5}"/>
+					</tween:props>
+				</tween:Set>
+				<tween:To duration="300">
+					<tween:props>
+						<e:Object scaleX="{0.5}" scaleY="{0.5}" width="{661.73}" alpha="{0.7}" height="{154.94}" x="{5}" y="{162.06}"/>
+					</tween:props>
+				</tween:To>
+				<tween:To duration="400">
+					<tween:props>
+						<e:Object scaleX="{0.8}" scaleY="{0.8}" width="{431.73}" alpha="{0.8}" height="{190.69}" x="{-3}" y="{87.06}"/>
+					</tween:props>
+				</tween:To>
+				<tween:To duration="350">
+					<tween:props>
+						<e:Object scaleX="{1.2}" scaleY="{1.5}" alpha="{0.9}" width="{352.56}" x="{-41.54}" height="{195.86}" y="{-54.78}"/>
+					</tween:props>
+				</tween:To>
+				<tween:To duration="450" ease="elasticIn">
+					<tween:props>
+						<e:Object scaleX="{1}" scaleY="{1}" width="{338.73}" height="{199.94}" x="{1}" y="{40.06}"/>
+					</tween:props>
+				</tween:To>
+			</tween:TweenItem>
+		</tween:TweenGroup>
+	</w:Declarations>
+	<e:Image id="farm_land_normal" source="未开垦_png" anchorOffsetX="0" width="339" anchorOffsetY="0" height="185" horizontalCenter="0" bottom="0"/>
 	<e:Component id="need_anim" width="98" height="130" enabled="true" anchorOffsetX="0" anchorOffsetY="0" horizontalCenter="0" verticalCenter="-15" skinName="anim" visible="false"/>
+	<e:Image source="未开垦_png" x="0" y="49.4" anchorOffsetX="0" width="339.72" anchorOffsetY="0" height="187.83" visible="false"/>
+	<e:Image source="8草地_png" x="0" y="55.08" anchorOffsetX="0" width="339.36" anchorOffsetY="0" height="185.61" visible="false"/>
+	<e:Image source="未标题-1_03_png" verticalCenter="-13.5" horizontalCenter="-7" height="300" width="230" visible="false"/>
+	<e:Image source="4_06_png" horizontalCenter="0.5" y="108" visible="false"/>
 </e:Skin>

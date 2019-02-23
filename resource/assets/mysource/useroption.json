@@ -1,6 +1,6 @@
 {"mc":{
 	"除草":{
-		"frameRate":24,
+		"frameRate":12,
 		"events":[
 			
 			],
@@ -38,7 +38,7 @@
 			}
 			]
 },"滴滴除草":{
-		"frameRate":24,
+		"frameRate":12,
 		"events":[
 			
 			],
@@ -121,7 +121,7 @@
 			}
 			]
 },"滴滴施肥":{
-		"frameRate":24,
+		"frameRate":12,
 		"events":[
 			
 			],
@@ -219,7 +219,7 @@
 			}
 			]
 },"施肥":{
-		"frameRate":24,
+		"frameRate":12,
 		"events":[
 			
 			],
@@ -257,7 +257,7 @@
 			}
 			]
 },"水桶":{
-		"frameRate":24,
+		"frameRate":12,
 		"events":[
 			
 			],
@@ -295,7 +295,7 @@
 			}
 			]
 },"水桶浇水":{
-		"frameRate":24,
+		"frameRate":12,
 		"events":[
 			
 			],

@@ -11,12 +11,19 @@ r.prototype = e.prototype, t.prototype = new r();
 //浇水施肥等动画控制类
 var control_anim = (function (_super) {
     __extends(control_anim, _super);
-    function control_anim() {
+    function control_anim(Optype) {
         var _this = _super.call(this) || this;
+        _this.test_grop = null;
         _this.image = null;
+        _this.Option_Type = null; //记录操作状态
         _this.addEventListener(eui.UIEvent.COMPLETE, _this.on_complete, _this);
+        _this.skinName = "resource/myskins/anim.exml";
+        _this.Option_Type = Optype;
+        console.log(Optype);
+        console.log(_this.Option_Type);
         return _this;
     }
+    ;
     //动画开始
     control_anim.prototype.start_anim = function () {
         this.scale.play(0);
@@ -29,15 +36,45 @@ var control_anim = (function (_super) {
     control_anim.prototype.change_image = function (src_load) {
         this.image.source = src_load;
     };
+    //点击监听
+    control_anim.prototype.handle_animClick = function (OptinType, evt) {
+        this.image.visible = false;
+        console.log(evt.localX); //65
+        console.log(evt.localY); //39
+        console.log(OptinType);
+        // console.log(evt
+        this.Show_option_handle('施肥', '滴滴施肥', evt.localX, evt.localY); //this.Hiden_option_handle)
+    };
     //皮肤加载成功监听
     control_anim.prototype.on_complete = function () {
         this.scale.addEventListener('itemComplete', this.onTweenItemComplete, this);
         this.start_anim();
+        this.image.name = "image TouchEvent";
+        this.image.addEventListener(egret.TouchEvent.TOUCH_TAP, this.handle_animClick.bind(this, this.Option_Type), this);
     };
     //监听动画组某个动画播放完成
     control_anim.prototype.onTweenItemComplete = function (event) {
         var item = event.data;
         this.start_anim();
+    };
+    control_anim.prototype.Show_option_handle = function (name, Mcname, objectX, objectY) {
+        var _this = this;
+        var data = RES.getRes(name + "_json");
+        var txtr = RES.getRes(name + "_png");
+        var mcFactory = new egret.MovieClipDataFactory(data, txtr);
+        var Option_gif = new egret.MovieClip(mcFactory.generateMovieClipData("" + Mcname));
+        Option_gif.x = objectX - 150;
+        Option_gif.y = objectY - 150;
+        this.test_grop.addChild(Option_gif);
+        Option_gif.gotoAndPlay(0, 2);
+        // callback(this.test_grop)
+        // this.test_grop.removeChild(Option_gif);
+        //监听浇水等动作完成 隐藏
+        Option_gif.addEventListener(egret.Event.COMPLETE, function (e, test_grop) {
+            console.log(e.type); //1次
+            // Option_gif.visible = false
+            _this.test_grop.removeChild(Option_gif);
+        }, this);
     };
     return control_anim;
 }(eui.Component));
