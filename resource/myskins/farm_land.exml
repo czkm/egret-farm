@@ -2,7 +2,7 @@
 <e:Skin class="farm_land" width="340" height="354" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:tween="egret.tween.*">
 	<w:Declarations>
 		<tween:TweenGroup id="cai_anim">
-			<tween:TweenItem target="{farm_land_normal}">
+			<tween:TweenItem target="{farm_land_normal1}">
 				<tween:Set>
 					<tween:props>
 						<e:Object x="{-1}" height="{36.94}" y="{203.06}" width="{332.73}" alpha="{0.5}"/>
@@ -31,10 +31,11 @@
 			</tween:TweenItem>
 		</tween:TweenGroup>
 	</w:Declarations>
-	<e:Image id="farm_land_normal" source="未开垦_png" anchorOffsetX="0" width="339" anchorOffsetY="0" height="185" horizontalCenter="0" bottom="0"/>
+	<e:Image id="farm_land_normal" source="land_1_png" left="0" bottom="0" right="0"/>
+	<e:Image id="farm_land_normal1" source="未开垦_png" anchorOffsetX="0" width="339" anchorOffsetY="0" height="185" horizontalCenter="0" bottom="0" visible="false"/>
+	<e:Image id="farm_land_cai" source="6_png" left="0" bottom="0" right="0" top="0"/>
+	<e:Label id="farm_land_area" text="100㎡" x="36.63" y="294.73" rotation="29.28" anchorOffsetX="0" width="81.47" anchorOffsetY="0" height="34"/>
 	<e:Component id="need_anim" width="98" height="130" enabled="true" anchorOffsetX="0" anchorOffsetY="0" horizontalCenter="0" verticalCenter="-15" skinName="anim" visible="false"/>
-	<e:Image source="未开垦_png" x="0" y="49.4" anchorOffsetX="0" width="339.72" anchorOffsetY="0" height="187.83" visible="false"/>
-	<e:Image source="8草地_png" x="0" y="55.08" anchorOffsetX="0" width="339.36" anchorOffsetY="0" height="185.61" visible="false"/>
-	<e:Image source="未标题-1_03_png" verticalCenter="-13.5" horizontalCenter="-7" height="300" width="230" visible="false"/>
-	<e:Image source="4_06_png" horizontalCenter="0.5" y="108" visible="false"/>
+	<e:Rect rotation="0.2" anchorOffsetX="0" anchorOffsetY="0" left="0" top="0" bottom="0" right="0" strokeColor="0x706d6d" fillAlpha="0.5" visible="false"/>
+	<e:Image id="farm_land_detail" source="farm_name_png" x="42.5" y="140.73" visible="false"/>
 </e:Skin>

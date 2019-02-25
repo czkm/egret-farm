@@ -12,17 +12,17 @@ r.prototype = e.prototype, t.prototype = new r();
 /**
  * Farmland extends eui.Component
  */
-// enum landType{"luobo_0_png","luobo_1-png","bocai_0_png","bocai_1_png"};
-// enum ScType { "need_water_png", "need_fertilize_png", "need_weed_png" };
-//土地类
 var Farmland = (function (_super) {
     __extends(Farmland, _super);
     function Farmland(CLid) {
         var _this = _super.call(this) || this;
         //土地默认
         _this.farm_land_normal = null;
-        // //施肥操作需求等动画
-        // public need_anim: control_anim = null;
+        _this.need_anim = null;
+        _this.farm_land_area = null;
+        _this.farm_land_cai = null;
+        //土地详情
+        _this.farm_land_detail = null;
         //创建时传入土地id
         _this.CreateLandId = null;
         //ui对象组
@@ -37,16 +37,8 @@ var Farmland = (function (_super) {
     }
     ;
     Farmland.prototype.OnComplete = function () {
-        //创建动画
-        // this.need_anim = new control_anim();
-        // this.need_anim.skinName = "resource/myskins/anim.exml";
-        // this.need_anim.x = 120;
-        // this.need_anim.y = 40;
-        // this.need_anim.start_anim();
-        // this.addChild(this.need_anim);
-        // this.start_anim()
-        this.ui_objs.push(this.farm_land_normal);
-        this.func_calls.push(this.land_handle.bind(this, this, this));
+        this.ui_objs.push(this.farm_land_normal, this.farm_land_cai);
+        this.func_calls.push(this.land_handle.bind(this, this, this), this.cai_handle.bind(this, this.farm_land_detail));
         this.ClickEvent_Listerner(this.ui_objs, this.func_calls);
         // this.farm_land_normal.addEventListener(egret.TouchEvent.TOUCH_TAP,this.land_anim.bind,this)
     };
@@ -63,7 +55,7 @@ var Farmland = (function (_super) {
     //土地处理
     Farmland.prototype.land_handle = function () {
         console.log("土地处理");
-        this.start_anim();
+        // this.start_anim()
     };
     // //播放土地动画
     // private land_anim(){
@@ -76,6 +68,11 @@ var Farmland = (function (_super) {
     //蔬菜动画停止
     Farmland.prototype.end_anim = function () {
         this.cai_anim.stop();
+    };
+    //点击弹窗
+    Farmland.prototype.cai_handle = function (farm_land_detail) {
+        console.log('蔬菜点击弹窗');
+        this.farm_land_detail.visible = true;
     };
     // //可扩地处理
     // private not_land_handle() {
@@ -95,6 +92,9 @@ var Farmland = (function (_super) {
     //土地图片变化
     Farmland.prototype.change_Landpic = function (land_src) {
         this.farm_land_normal.source = land_src;
+    };
+    Farmland.prototype.change_Caipic = function (Cai_src) {
+        this.farm_land_cai.source = Cai_src;
     };
     //----静态成员----//
     //施肥等操作资源路径组

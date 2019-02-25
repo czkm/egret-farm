@@ -19,9 +19,9 @@ var control_anim = (function (_super) {
         _this.addEventListener(eui.UIEvent.COMPLETE, _this.on_complete, _this);
         _this.skinName = "resource/myskins/anim.exml";
         _this.Option_Type = Optype;
-        console.log(Optype);
-        console.log(_this.Option_Type);
         return _this;
+        // console.log(Optype)
+        // console.log(this.Option_Type)
     }
     ;
     //动画开始
@@ -43,13 +43,17 @@ var control_anim = (function (_super) {
         console.log(evt.localY); //39
         console.log(OptinType);
         // console.log(evt
-        this.Show_option_handle('施肥', '滴滴施肥', evt.localX, evt.localY); //this.Hiden_option_handle)
+        //playX,playY是传入播放帧动画的坐标
+        var playX = evt.localX + 60;
+        var playY = evt.localY + 20;
+        //判断操作
+        this.Show_option_handle('water_0', '12', playX, playY); //this.Hiden_option_handle)
     };
     //皮肤加载成功监听
     control_anim.prototype.on_complete = function () {
         this.scale.addEventListener('itemComplete', this.onTweenItemComplete, this);
         this.start_anim();
-        this.image.name = "image TouchEvent";
+        // this.image.name = "image TouchEvent";
         this.image.addEventListener(egret.TouchEvent.TOUCH_TAP, this.handle_animClick.bind(this, this.Option_Type), this);
     };
     //监听动画组某个动画播放完成
@@ -63,10 +67,10 @@ var control_anim = (function (_super) {
         var txtr = RES.getRes(name + "_png");
         var mcFactory = new egret.MovieClipDataFactory(data, txtr);
         var Option_gif = new egret.MovieClip(mcFactory.generateMovieClipData("" + Mcname));
-        Option_gif.x = objectX - 150;
-        Option_gif.y = objectY - 150;
+        Option_gif.x = objectX; //- 150
+        Option_gif.y = objectY; //- 150
         this.test_grop.addChild(Option_gif);
-        Option_gif.gotoAndPlay(0, 2);
+        Option_gif.gotoAndPlay(0, 1);
         // callback(this.test_grop)
         // this.test_grop.removeChild(Option_gif);
         //监听浇水等动作完成 隐藏
