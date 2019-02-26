@@ -16,6 +16,7 @@ class Farmland extends eui.Component {
     public farm_land_area: eui.Label = null;
     public farm_land_cai: eui.Image = null;
 
+
     //土地详情
     public farm_land_detail: eui.Image = null;
 
@@ -50,8 +51,8 @@ class Farmland extends eui.Component {
 
     private OnComplete() {
 
-        this.ui_objs.push(this.farm_land_normal, this.farm_land_cai);
-        this.func_calls.push(this.land_handle.bind(this, this, this), this.cai_handle.bind(this,this.farm_land_detail));
+        this.ui_objs.push(this.farm_land_normal);
+        this.func_calls.push(this.land_handle.bind(this, this.farm_land_detail));
         this.ClickEvent_Listerner(this.ui_objs, this.func_calls);
         // this.farm_land_normal.addEventListener(egret.TouchEvent.TOUCH_TAP,this.land_anim.bind,this)
 
@@ -67,9 +68,15 @@ class Farmland extends eui.Component {
     }
 
     //土地处理
-    private land_handle(this) {
+    private land_handle(farm_land_detail) {
         console.log("土地处理");
-        // this.start_anim()
+        console.log(this.CreateLandId)
+
+        this.farm_land_detail.visible = true
+        setTimeout(() => {
+
+            this.farm_land_detail.visible = false
+        }, 3000)
     }
     // //播放土地动画
     // private land_anim(){
@@ -85,10 +92,11 @@ class Farmland extends eui.Component {
         this.cai_anim.stop();
     }
     //点击弹窗
-    public cai_handle(farm_land_detail) {
-        console.log('蔬菜点击弹窗')
-        this.farm_land_detail.visible = true
-    }
+    // public detail_handle(farm_land_detail) {
+    //     console.log('蔬菜点击弹窗')
+    //     this.farm_land_detail.visible = true
+
+    // }
 
     // //可扩地处理
     // private not_land_handle() {
@@ -107,6 +115,7 @@ class Farmland extends eui.Component {
     // public change_picture(src: string, ui_obj: eui.Image) {
     //     ui_obj.source = src;
     // }
+
 
 
     //土地图片变化

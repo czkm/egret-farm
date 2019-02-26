@@ -14,4 +14,4 @@ enum ScType {
 
 };
 //操作状态
-enum OptionType { "need_water_png", "need_fertilize_png", "need_weed_png","need_take_png"};
+enum OptionType { 'normal',"need_water_png", "need_fertilize_png", "need_weed_png","need_take_png"};

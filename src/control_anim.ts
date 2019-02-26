@@ -7,7 +7,7 @@ class control_anim extends eui.Component {
 	private image: eui.Image = null;
 
 
-	private Option_Type: Number = null; //记录操作状态
+	private Option_Type = null; //记录操作状态
 	// public option_anim: eui.Component = null;
 
 	private scale: egret.tween.TweenGroup;
@@ -55,7 +55,20 @@ class control_anim extends eui.Component {
 
 		//判断操作
 
-		this.Show_option_handle('water_0', '12', playX, playY)//this.Hiden_option_handle)
+		console.log(this.Option_Type)
+		//需要浇水
+		if (this.Option_Type == 'need_water_png') {
+			this.Show_option_handle('water_0', '12', playX, playY)//this.Hiden_option_handle)
+		} else if (this.Option_Type == 'need_fertilize_png') {
+			console.log('施肥')
+		} else if (this.Option_Type == 'need_weed_png') {
+			console.log('除草')
+
+		} else if (this.Option_Type == 'need_take_png') {
+			console.log('收获')
+
+		}
+
 
 
 
@@ -91,15 +104,14 @@ class control_anim extends eui.Component {
 
 		this.test_grop.addChild(Option_gif);
 		Option_gif.gotoAndPlay(0, 1);
-		// callback(this.test_grop)
-		// this.test_grop.removeChild(Option_gif);
-		//监听浇水等动作完成 隐藏
-
 		Option_gif.addEventListener(egret.Event.COMPLETE, (e: egret.Event, test_grop) => {
 			console.log(e.type);//1次
 			// Option_gif.visible = false
 			this.test_grop.removeChild(Option_gif)
+			this.removeChild(this.test_grop)
 		}, this);
+
+		this.image.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.handle_animClick.bind(this, this.Option_Type), this)
 
 	}
 

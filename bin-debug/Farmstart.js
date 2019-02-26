@@ -49,8 +49,8 @@ var Farmstart = (function (_super) {
         this.scroller.verticalScrollBar.autoVisibility = false;
         this.scroller.viewport.scrollH = 0; //屏幕初始化位置
         //this.scroller.viewport.
-        this.Farmstart_ui_objs.push(this.farm_option_mine, this.farm_option_active, this.farm_option_take, this.farm_option_expand, this.farm_option_left, this.farm_option_right);
-        this.Farmstart_func_calls.push(this.mine_handle, this.active_handle, this.take_handle, this.expand_handle, this.left_handle, this.right_handle);
+        this.Farmstart_ui_objs.push(this.farm_option_mine, this.farm_option_active, this.farm_option_take, this.farm_option_expand, this.farm_option_left, this.farm_option_right, this.farm_man);
+        this.Farmstart_func_calls.push(this.mine_handle, this.active_handle, this.take_handle, this.expand_handle, this.left_handle, this.right_handle, this.land_change_handle.bind(this, this.farm_land_group, this.farm_land_group2));
         this.ClickEvent_Listerner(this.Farmstart_ui_objs, this.Farmstart_func_calls);
         //------------向服务器请求用户数据------------
         var request = new egret.HttpRequest();
@@ -81,6 +81,8 @@ var Farmstart = (function (_super) {
         console.log(res.num2);
         //console.log(res.data)
         //1,2,1,3,1
+        // let num = [1,2,3,4,5,6]
+        //   let num2 = [1,2,3,1,1,2]
         for (var i = 0; i < res.num.length; i++) {
             var scindex = res.num[i];
             var optionindex = res.num2[i];
@@ -92,6 +94,7 @@ var Farmstart = (function (_super) {
         }
         this.LandArry.push(this.land_0, this.land_1);
         this.initLand(this.farm_land_group, this.scType, this.optionType);
+        this.initLand2(this.farm_land_group2, this.scType, this.optionType);
         console.log(this.LandArry);
     };
     Farmstart.prototype.complete_load = function () {
@@ -116,7 +119,7 @@ var Farmstart = (function (_super) {
             //创建农场土地
             var farmland = new Farmland(i);
             //创建操作状态
-            var anim_1 = new control_anim(1);
+            var anim_1 = new control_anim(Optype[i]);
             //设立坐标组
             farmland.x = pos[i].x;
             farmland.y = pos[i].y;
@@ -131,45 +134,106 @@ var Farmstart = (function (_super) {
             parent.addChild(anim_1);
             console.log(farmland.CreateLandId);
             //监听点击事件
-            farmland.addEventListener(egret.TouchEvent.TOUCH_TAP, this.farmland_handle.bind(this, i), this);
-            anim_1.addEventListener(egret.TouchEvent.TOUCH_TAP, this.option_handle, this);
+            // farmland.addEventListener(egret.TouchEvent.TOUCH_TAP, this.farmland_handle.bind(this, i), this)
+            // anim.addEventListener(egret.TouchEvent.TOUCH_TAP, this.option_handle, this)
         }
         console.log("添加土地");
     };
+    Farmstart.prototype.initLand2 = function (parent, scType, Optype) {
+        // await this.landenum
+        // await this.landindex
+        console.log(scType);
+        //Xoff,Yoff是提示用户图标的偏移
+        var Xoff = 120;
+        var Yoff = 110;
+        var pos = new Array(2);
+        pos[6] = new egret.Point(113.21, -127.94);
+        pos[7] = new egret.Point(337.74, -9.45);
+        // pos[2] = new egret.Point(95.98, 114.37);
+        // pos[3] = new egret.Point(339.89, 234.73);
+        // pos[4] = new egret.Point(76.51, 360);
+        // pos[5] = new egret.Point(323.18, 482.07);
+        for (var i = 6; i < 8; i++) {
+            //创建农场土地
+            var farmland = new Farmland(i);
+            //创建操作状态
+            var anim_2 = new control_anim(Optype[i]);
+            //设立坐标组
+            farmland.x = pos[i].x;
+            farmland.y = pos[i].y;
+            anim_2.x = pos[i].x + Xoff;
+            anim_2.y = pos[i].y + Yoff;
+            // console.log(scType[i])
+            //通过枚举更改土地状态,操作状态 的资源图片
+            // farmland.change_Landpic(landtype[i])
+            farmland.change_Caipic(scType[i]);
+            anim_2.change_image(Optype[i]);
+            parent.addChild(farmland);
+            parent.addChild(anim_2);
+            console.log(farmland.CreateLandId);
+            //监听点击事件
+            // farmland.addEventListener(egret.TouchEvent.TOUCH_TAP, this.farmland_handle.bind(this, i), this)
+            // anim.addEventListener(egret.TouchEvent.TOUCH_TAP, this.option_handle, this)
+        }
+        this.farm_land_group2.visible = false;
+        console.log("添加第二块土地");
+    };
     //-----------------操作回调方法----------
+    Farmstart.prototype.land_change_handle = function (farm_land_group, farm_land_group2) {
+        console.log('切换');
+        console.log(this.farm_land_group.visible);
+        console.log(this.farm_land_group2.visible);
+        this.farm_land_group.visible = !this.farm_land_group.visible;
+        this.farm_land_group2.visible = !this.farm_land_group2.visible;
+        // if (this.farm_land_group.visible = true) {
+        //     this.farm_land_group.visible = false
+        //     this.farm_land_group2.visible = true
+        // } else {
+        //     this.farm_land_group.visible = true
+        //     this.farm_land_group2.visible = false
+        // }
+    };
     //点击我的操作
     Farmstart.prototype.mine_handle = function () {
         console.log('我的');
     };
+    ;
     //点击动态
     Farmstart.prototype.active_handle = function () {
         console.log('动态');
     };
+    ;
     //点击收获
     Farmstart.prototype.take_handle = function () {
         console.log('收获');
     };
+    ;
     //点击扩地
     Farmstart.prototype.expand_handle = function () {
         console.log('扩地');
     };
+    ;
     //点击左边
     Farmstart.prototype.left_handle = function () {
         console.log('左左');
     };
+    ;
     //点击右边
     Farmstart.prototype.right_handle = function () {
         console.log('右右');
     };
+    ;
     //土地点击监听
     Farmstart.prototype.farmland_handle = function (id, evt) {
         console.log(id);
         console.log(evt);
     };
+    ;
     //点击操作监听
     Farmstart.prototype.option_handle = function (evt) {
-        console.log(evt);
+        // console.log(evt)
     };
+    ;
     //点击扩地
     Farmstart.prototype.pack_handle = function () {
         console.log('我的包裹');
@@ -178,10 +242,12 @@ var Farmstart = (function (_super) {
     Farmstart.prototype.camera_handle = function () {
         console.log('照相机');
     };
+    ;
     //点击右边
     Farmstart.prototype.pic_handle = function () {
         console.log('我的相册');
     };
+    ;
     return Farmstart;
 }(eui.Component));
 __reflect(Farmstart.prototype, "Farmstart");

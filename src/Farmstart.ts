@@ -13,13 +13,19 @@ class Farmstart extends eui.Component {
     public farm_man: eui.Image;
     public farm_dog1: eui.Image;
     public farm_dog2: eui.Image;
+
+    //用户土地第一页
     public farm_land_group: eui.Group;
-    public land_0: eui.Component=null;
-    public land_1: eui.Component=null;
-    public land_2: eui.Component=null;
-    public land_3: eui.Component=null;
-    public land_4: eui.Component=null;
-    public land_5: eui.Component=null;
+    public land_0: eui.Component = null;
+    public land_1: eui.Component = null;
+    public land_2: eui.Component = null;
+    public land_3: eui.Component = null;
+    public land_4: eui.Component = null;
+    public land_5: eui.Component = null;
+    //用户土地第二页
+    public farm_land_group2: eui.Group;
+
+
 
 
     //---------------土地固定图标 用户操作组-----------------------------
@@ -82,8 +88,8 @@ class Farmstart extends eui.Component {
 
 
 
-        this.Farmstart_ui_objs.push(this.farm_option_mine, this.farm_option_active, this.farm_option_take, this.farm_option_expand, this.farm_option_left, this.farm_option_right, );
-        this.Farmstart_func_calls.push(this.mine_handle, this.active_handle, this.take_handle, this.expand_handle, this.left_handle, this.right_handle);
+        this.Farmstart_ui_objs.push(this.farm_option_mine, this.farm_option_active, this.farm_option_take, this.farm_option_expand, this.farm_option_left, this.farm_option_right, this.farm_man);
+        this.Farmstart_func_calls.push(this.mine_handle, this.active_handle, this.take_handle, this.expand_handle, this.left_handle, this.right_handle, this.land_change_handle.bind(this, this.farm_land_group, this.farm_land_group2));
         this.ClickEvent_Listerner(this.Farmstart_ui_objs, this.Farmstart_func_calls);
 
         //------------向服务器请求用户数据------------
@@ -122,7 +128,8 @@ class Farmstart extends eui.Component {
         //console.log(res.data)
 
         //1,2,1,3,1
-
+        // let num = [1,2,3,4,5,6]
+        //   let num2 = [1,2,3,1,1,2]
 
         for (var i = 0; i < res.num.length; i++) {
             let scindex = res.num[i]
@@ -135,8 +142,11 @@ class Farmstart extends eui.Component {
             this.scType.push(ScType[scindex])
             this.optionType.push(OptionType[optionindex])
         }
-        this.LandArry.push(this.land_0,this.land_1)
+        this.LandArry.push(this.land_0, this.land_1)
         this.initLand(this.farm_land_group, this.scType, this.optionType);
+
+        this.initLand2(this.farm_land_group2, this.scType, this.optionType)
+
         console.log(this.LandArry)
     }
 
@@ -171,11 +181,12 @@ class Farmstart extends eui.Component {
         pos[3] = new egret.Point(339.89, 234.73);
         pos[4] = new egret.Point(76.51, 360);
         pos[5] = new egret.Point(323.18, 482.07);
+
         for (let i = 0; i < pos.length; i++) {
             //创建农场土地
             let farmland: Farmland = new Farmland(i);
             //创建操作状态
-            let anim = new control_anim(1)
+            let anim = new control_anim(Optype[i])
 
             //设立坐标组
             farmland.x = pos[i].x;
@@ -195,56 +206,132 @@ class Farmstart extends eui.Component {
             console.log(farmland.CreateLandId)
 
             //监听点击事件
-            farmland.addEventListener(egret.TouchEvent.TOUCH_TAP, this.farmland_handle.bind(this, i), this)
-            anim.addEventListener(egret.TouchEvent.TOUCH_TAP, this.option_handle, this)
+            // farmland.addEventListener(egret.TouchEvent.TOUCH_TAP, this.farmland_handle.bind(this, i), this)
+            // anim.addEventListener(egret.TouchEvent.TOUCH_TAP, this.option_handle, this)
         }
 
         console.log("添加土地")
     }
+
+
+    private initLand2(parent: eui.Group, scType, Optype) {
+        // await this.landenum
+        // await this.landindex
+        console.log(scType)
+
+
+
+        //Xoff,Yoff是提示用户图标的偏移
+        let Xoff = 120
+        let Yoff = 110
+
+
+
+
+        let pos: egret.Point[] = new Array(2);
+        pos[6] = new egret.Point(113.21, -127.94);
+        pos[7] = new egret.Point(337.74, -9.45);
+        // pos[2] = new egret.Point(95.98, 114.37);
+        // pos[3] = new egret.Point(339.89, 234.73);
+        // pos[4] = new egret.Point(76.51, 360);
+        // pos[5] = new egret.Point(323.18, 482.07);
+
+        for (let i = 6; i < 8; i++) {
+            //创建农场土地
+            let farmland: Farmland = new Farmland(i);
+            //创建操作状态
+            let anim = new control_anim(Optype[i])
+
+            //设立坐标组
+            farmland.x = pos[i].x;
+            farmland.y = pos[i].y;
+
+            anim.x = pos[i].x + Xoff;
+            anim.y = pos[i].y + Yoff;
+            // console.log(scType[i])
+            //通过枚举更改土地状态,操作状态 的资源图片
+
+            // farmland.change_Landpic(landtype[i])
+            farmland.change_Caipic(scType[i])
+            anim.change_image(Optype[i])
+
+            parent.addChild(farmland);
+            parent.addChild(anim);
+            console.log(farmland.CreateLandId)
+
+            //监听点击事件
+            // farmland.addEventListener(egret.TouchEvent.TOUCH_TAP, this.farmland_handle.bind(this, i), this)
+            // anim.addEventListener(egret.TouchEvent.TOUCH_TAP, this.option_handle, this)
+        }
+        this.farm_land_group2.visible = false
+        console.log("添加第二块土地")
+    }
+
+
+
     //-----------------操作回调方法----------
 
+
+    public land_change_handle(farm_land_group, farm_land_group2) {
+        console.log('切换')
+        console.log(this.farm_land_group.visible)
+        console.log(this.farm_land_group2.visible)      
+        this.farm_land_group.visible = !this.farm_land_group.visible
+        this.farm_land_group2.visible = !this.farm_land_group2.visible
+ 
+
+
+        // if (this.farm_land_group.visible = true) {
+        //     this.farm_land_group.visible = false
+        //     this.farm_land_group2.visible = true
+        // } else {
+        //     this.farm_land_group.visible = true
+        //     this.farm_land_group2.visible = false
+        // }
+
+    }
 
     //点击我的操作
     public mine_handle() {
         console.log('我的')
-    }
+    };
     //点击动态
     public active_handle() {
         console.log('动态')
 
-    }
+    };
     //点击收获
     public take_handle() {
         console.log('收获')
 
-    }
+    };
     //点击扩地
     public expand_handle() {
         console.log('扩地')
 
-    }
+    };
     //点击左边
     public left_handle() {
         console.log('左左')
 
-    }
+    };
     //点击右边
     public right_handle() {
         console.log('右右')
 
-    }
+    };
     //土地点击监听
     public farmland_handle(id, evt: egret.TouchEvent) {
         console.log(id)
         console.log(evt)
 
 
-    }
+    };
     //点击操作监听
     public option_handle(evt: egret.TouchEvent) {
-        console.log(evt)
+        // console.log(evt)
 
-    }
+    };
 
     //点击扩地
     public pack_handle() {
@@ -255,10 +342,13 @@ class Farmstart extends eui.Component {
     public camera_handle() {
         console.log('照相机')
 
-    }
+    };
     //点击右边
     public pic_handle() {
         console.log('我的相册')
 
-    }
+    };
+
+
+
 }

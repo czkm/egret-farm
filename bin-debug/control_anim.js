@@ -47,7 +47,20 @@ var control_anim = (function (_super) {
         var playX = evt.localX + 60;
         var playY = evt.localY + 20;
         //判断操作
-        this.Show_option_handle('water_0', '12', playX, playY); //this.Hiden_option_handle)
+        console.log(this.Option_Type);
+        //需要浇水
+        if (this.Option_Type == 'need_water_png') {
+            this.Show_option_handle('water_0', '12', playX, playY); //this.Hiden_option_handle)
+        }
+        else if (this.Option_Type == 'need_fertilize_png') {
+            console.log('施肥');
+        }
+        else if (this.Option_Type == 'need_weed_png') {
+            console.log('除草');
+        }
+        else if (this.Option_Type == 'need_take_png') {
+            console.log('收获');
+        }
     };
     //皮肤加载成功监听
     control_anim.prototype.on_complete = function () {
@@ -71,14 +84,13 @@ var control_anim = (function (_super) {
         Option_gif.y = objectY; //- 150
         this.test_grop.addChild(Option_gif);
         Option_gif.gotoAndPlay(0, 1);
-        // callback(this.test_grop)
-        // this.test_grop.removeChild(Option_gif);
-        //监听浇水等动作完成 隐藏
         Option_gif.addEventListener(egret.Event.COMPLETE, function (e, test_grop) {
             console.log(e.type); //1次
             // Option_gif.visible = false
             _this.test_grop.removeChild(Option_gif);
+            _this.removeChild(_this.test_grop);
         }, this);
+        this.image.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.handle_animClick.bind(this, this.Option_Type), this);
     };
     return control_anim;
 }(eui.Component));

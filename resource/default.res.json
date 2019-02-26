@@ -1,7 +1,7 @@
 {
 	"groups": [
 		{
-			"keys": "checkbox_select_disabled_png,checkbox_select_down_png,checkbox_select_up_png,checkbox_unselect_png,selected_png,border_png,header_png,radiobutton_select_disabled_png,radiobutton_select_down_png,radiobutton_select_up_png,radiobutton_unselect_png,roundthumb_png,thumb_png,track_png,tracklight_png,handle_png,off_png,on_png,button_down_png,button_up_png,thumb_pb_png,track_pb_png,track_sb_png,bg_jpg,egret_icon_png,description_json,need_water_png,need_weed_png,need_fertilize_png,4_06_png,8草地_png,bocai_0_png,bocai_1_png,digua_0_png,digua_1_png,jiandou_1_png,luobo_0_png,luobo_1_png,卷心菜成熟期_03_png,卷心菜成长期_03_png,土豆成熟期_03_png,土豆成长期_03_png,幼苗_png,扩地_png,未开垦_png,未标题-1_03_png,生菜成熟期_03_png,生菜成长期_03_png,秋葵成熟期_03_png,秋葵成长期_03_png,种子_png,空心菜成熟期_03_png,空心菜成长期_03_png,花菜成熟期_03_png,花菜成长期_03_png,芹菜成熟期_03_png,芹菜成长期_03_png,茄子成熟期_03_png,茄子成长期_03_png,茼蒿成熟期_03_png,茼蒿成长期_03_png,莴苣成熟期_03_png,莴苣成长期_03_png,西红柿成熟期_03_png,西红柿成长期_03_png,豇豆成长期_03_png,韭菜成熟期_03_png,韭菜成长期_03_png,鸡毛菜成熟期_03_png,鸡毛菜成长期_03_png,1_png,2_01_png,3_01_png,4_03_png,5_03_png,6_06_png,7_03_png,8_03_png,10_03_png,animation1_json,animation1_png,cai_png,need_fertilize2_png,need_water2_png,need_weed2_png,useroption_json,useroption_png,括地图_png,施肥_json,施肥_png,1_03_png,fertilize_gif,water_gif,weed_gif,右_03_png,左_03_png,6_png,land_1_png,useroption2_json,useroption2_png,water_0_json,water_0_png,land_bg_png,100_03_png,BC_0_png,BC_1_png,DG_0_png,DG_1_png,HC_0_png,HC_1_png,JC_0_png,JC_1_png,JD_0_png,JD_1_png,JM_0_png,JM_1_png,JX_0_png,JX_1_png,KX_0_png,KX_1_png,LB_0_png,NY_0_png,QC_0_png,QC_1_png,QK_0_png,QK_1_png,QZ_0_png,QZ_1_png,SC_0_png,SC_1_png,TD_0_png,TD_1_png,TH_0_png,TH_1_png,WJ_0_png,WJ_1_png,XH_0_png,XH_1_png,ZZ_0_png,LB_1_png,land_0_png,land_2_png,need_take_png,user_option_bg_png,user_pack_png,user_pic_png,farm_name_png,user_camera_png,dt_06_png,kd_12_png,sh_09_png,wd_03_png",
+			"keys": "checkbox_select_disabled_png,checkbox_select_down_png,checkbox_select_up_png,checkbox_unselect_png,selected_png,border_png,header_png,radiobutton_select_disabled_png,radiobutton_select_down_png,radiobutton_select_up_png,radiobutton_unselect_png,roundthumb_png,thumb_png,track_png,tracklight_png,handle_png,off_png,on_png,button_down_png,button_up_png,thumb_pb_png,track_pb_png,track_sb_png,bg_jpg,egret_icon_png,description_json,need_water_png,need_weed_png,need_fertilize_png,4_06_png,8草地_png,bocai_0_png,bocai_1_png,digua_0_png,digua_1_png,jiandou_1_png,luobo_0_png,luobo_1_png,卷心菜成熟期_03_png,卷心菜成长期_03_png,土豆成熟期_03_png,土豆成长期_03_png,幼苗_png,扩地_png,未开垦_png,未标题-1_03_png,生菜成熟期_03_png,生菜成长期_03_png,秋葵成熟期_03_png,秋葵成长期_03_png,种子_png,空心菜成熟期_03_png,空心菜成长期_03_png,花菜成熟期_03_png,花菜成长期_03_png,芹菜成熟期_03_png,芹菜成长期_03_png,茄子成熟期_03_png,茄子成长期_03_png,茼蒿成熟期_03_png,茼蒿成长期_03_png,莴苣成熟期_03_png,莴苣成长期_03_png,西红柿成熟期_03_png,西红柿成长期_03_png,豇豆成长期_03_png,韭菜成熟期_03_png,韭菜成长期_03_png,鸡毛菜成熟期_03_png,鸡毛菜成长期_03_png,1_png,2_01_png,3_01_png,4_03_png,5_03_png,6_06_png,7_03_png,8_03_png,10_03_png,animation1_json,animation1_png,cai_png,need_fertilize2_png,need_water2_png,need_weed2_png,useroption_json,useroption_png,括地图_png,施肥_json,施肥_png,fertilize_gif,water_gif,weed_gif,右_03_png,左_03_png,land_1_png,water_0_json,water_0_png,land_bg_png,BC_0_png,BC_1_png,DG_0_png,DG_1_png,HC_0_png,HC_1_png,JC_0_png,JC_1_png,JD_0_png,JD_1_png,JM_0_png,JM_1_png,JX_0_png,JX_1_png,KX_0_png,KX_1_png,LB_0_png,NY_0_png,QC_0_png,QC_1_png,QK_0_png,QK_1_png,QZ_0_png,QZ_1_png,SC_0_png,SC_1_png,TD_0_png,TD_1_png,TH_0_png,TH_1_png,WJ_0_png,WJ_1_png,XH_0_png,XH_1_png,ZZ_0_png,LB_1_png,land_0_png,land_2_png,need_take_png,user_option_bg_png,user_pack_png,user_pic_png,farm_name_png,user_camera_png,dt_06_png,kd_12_png,sh_09_png,wd_03_png",
 			"name": "preload"
 		}
 	],
@@ -457,11 +457,6 @@
 			"url": "assets/mysource/test/施肥.png"
 		},
 		{
-			"name": "1_03_png",
-			"type": "image",
-			"url": "assets/mysource/1_03.png"
-		},
-		{
 			"name": "fertilize_gif",
 			"type": "image",
 			"url": "assets/mysource/fertilize.gif"
@@ -487,24 +482,9 @@
 			"url": "assets/mysource/左_03.png"
 		},
 		{
-			"name": "6_png",
-			"type": "image",
-			"url": "assets/mysource/6.png"
-		},
-		{
 			"name": "land_1_png",
 			"type": "image",
 			"url": "assets/mysource/land_1.png"
-		},
-		{
-			"name": "useroption2_json",
-			"type": "json",
-			"url": "assets/mysource/useroption.json"
-		},
-		{
-			"name": "useroption2_png",
-			"type": "image",
-			"url": "assets/mysource/useroption.png"
 		},
 		{
 			"name": "water_0_json",
@@ -520,11 +500,6 @@
 			"name": "land_bg_png",
 			"type": "image",
 			"url": "assets/mysource/land_bg.png"
-		},
-		{
-			"name": "100_03_png",
-			"type": "image",
-			"url": "assets/mysource/100_03.png"
 		},
 		{
 			"name": "BC_0_png",

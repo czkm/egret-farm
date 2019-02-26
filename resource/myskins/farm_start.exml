@@ -5,20 +5,30 @@
 	</w:Declarations>
 	<e:Scroller id="scroller" width="750" height="1334" anchorOffsetY="0" anchorOffsetX="0" left="0" top="0">
 		<e:Group id="viewportGroup" anchorOffsetX="0" width="1039.39" anchorOffsetY="0" height="1314" y="176">
-			<e:Image id="farm_land_bg" source="括地图_png" anchorOffsetX="0" anchorOffsetY="0" left="0" height="1500" width="2250" top="0"/>
+			<e:Image id="farm_land_bg" source="括地图_png" anchorOffsetX="0" anchorOffsetY="0" left="2" height="1500" width="2250" top="0"/>
 			<e:Image id="farm_zl" source="3_01_png" x="-2" y="0"/>
 			<e:Image id="farm_house" source="2_01_png" left="0" top="0"/>
 			<e:Image id="farm_man" source="4_03_png" x="238.94" y="229.5" anchorOffsetX="0" width="111.86" anchorOffsetY="0" height="188.39"/>
 			<e:Image id="farm_dog1" source="5_03_png" x="350.8" y="288.01" anchorOffsetX="0" width="100.8" anchorOffsetY="0" height="129.88"/>
 			<e:Image id="farm_dog2" source="6_06_png" x="180" y="361"/>
-			<e:Group id="farm_land_group" width="748" height="878" x="0" y="452" anchorOffsetX="0" anchorOffsetY="0">
-				<e:Image id="farn_land_weilan" source="land_bg_png" x="25" y="-52"/>
-				<e:Component id="land_0" width="340" height="354" x="113.21" y="-127.94" anchorOffsetX="0" anchorOffsetY="0" skinName="farm_land"/>
-				<e:Component id="land_1" width="340" height="354" x="337.74" y="-9.45" anchorOffsetX="0" anchorOffsetY="0" skinName="farm_land"/>
-				<e:Component id="land_2" width="340" height="354" x="95.98" y="114.37" anchorOffsetX="0" anchorOffsetY="0" skinName="farm_land"/>
-				<e:Component id="land_3" width="340" height="354" x="339.89" y="234.73" anchorOffsetX="0" anchorOffsetY="0" skinName="farm_land" scaleX="1" scaleY="1"/>
-				<e:Component id="land_4" width="340" height="354" x="76.51" y="360" anchorOffsetX="0" anchorOffsetY="0" skinName="farm_land" scaleX="1" scaleY="1"/>
-				<e:Component id="land_5" width="340" height="354" x="323.18" y="482.07" anchorOffsetX="0" anchorOffsetY="0" skinName="farm_land" scaleX="1" scaleY="1"/>
+			<e:Image id="farm_land_weilan" source="land_bg_png" x="23.57" y="406.06"/>
+			<e:Group id="farm_land_group" height="878" anchorOffsetX="0" anchorOffsetY="0" left="0" right="0" bottom="0">
+				<e:Group id="farm_land_position" x="76.51" y="-127.94" anchorOffsetX="0" width="600" anchorOffsetY="0" height="963" visible="false">
+					<e:Component id="land_0" width="340" height="354" x="210.03" y="254.99" anchorOffsetX="160" anchorOffsetY="236" skinName="farm_land"/>
+					<e:Component id="land_1" width="340" height="354" x="434.56" y="373.48" anchorOffsetX="170" anchorOffsetY="234" skinName="farm_land"/>
+					<e:Component id="land_2" width="340" height="354" x="190.8" y="497.3" anchorOffsetX="162" anchorOffsetY="248" skinName="farm_land"/>
+					<e:Component id="land_3" width="340" height="354" x="436.71" y="617.66" anchorOffsetX="160" anchorOffsetY="240" skinName="farm_land" scaleX="1" scaleY="1"/>
+					<e:Component id="land_4" width="340" height="354" x="169.33" y="744.93" anchorOffsetX="160" anchorOffsetY="246" skinName="farm_land" scaleX="1" scaleY="1"/>
+					<e:Component id="land_5" width="340" height="354" x="414" y="881" anchorOffsetX="160" anchorOffsetY="256" skinName="farm_land" scaleX="1" scaleY="1"/>
+				</e:Group>
+			</e:Group>
+			<e:Group id="farm_land_group2" anchorOffsetX="0" anchorOffsetY="0" height="833" left="0" right="0" bottom="45">
+				<e:Component id="land_6" width="340" height="354" x="60.49" y="-197.37" anchorOffsetX="-2" anchorOffsetY="2" skinName="farm_land" visible="false"/>
+				<e:Component id="land_7" width="340" height="354" x="288.49" y="-86.37" anchorOffsetX="-2" anchorOffsetY="0" skinName="farm_land" visible="false"/>
+				<e:Component id="land_8" width="340" height="354" x="49.49" y="49.49" anchorOffsetX="0" anchorOffsetY="4" skinName="farm_land" visible="false"/>
+				<e:Component id="land_9" width="340" height="354" x="295.49" y="160.63" anchorOffsetX="2" anchorOffsetY="0" skinName="farm_land" scaleX="1" scaleY="1" visible="false"/>
+				<e:Component id="land_10" width="340" height="354" x="191.99" y="533.67" anchorOffsetX="160" anchorOffsetY="246" skinName="farm_land" scaleX="1" scaleY="1" visible="false"/>
+				<e:Component id="land_11" width="340" height="354" x="438.49" y="668.94" anchorOffsetX="160" anchorOffsetY="256" skinName="farm_land" scaleX="1" scaleY="1" visible="false"/>
 			</e:Group>
 		</e:Group>
 	</e:Scroller>
@@ -32,7 +42,7 @@
 		<e:Image id="farm_option_right" source="右_03_png" y="0" width="140" height="78" left="613"/>
 		<e:Image id="farm_option_left" source="左_03_png" y="4" anchorOffsetX="0" width="140" anchorOffsetY="0" height="78" left="4"/>
 	</e:Group>
-	<e:Group id="user_bottom" x="0" y="1172.71">
+	<e:Group id="user_bottom" x="0" y="1172.71" visible="false">
 		<e:Image id="user_option_bg" source="user_option_bg_png" y="6.28" x="0"/>
 		<e:Image id="user_pack" source="user_pack_png" x="38" y="7"/>
 		<e:Image id="user_camera" source="user_camera_png" y="7" x="297.5"/>

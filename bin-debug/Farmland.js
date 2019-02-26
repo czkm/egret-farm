@@ -37,8 +37,8 @@ var Farmland = (function (_super) {
     }
     ;
     Farmland.prototype.OnComplete = function () {
-        this.ui_objs.push(this.farm_land_normal, this.farm_land_cai);
-        this.func_calls.push(this.land_handle.bind(this, this, this), this.cai_handle.bind(this, this.farm_land_detail));
+        this.ui_objs.push(this.farm_land_normal);
+        this.func_calls.push(this.land_handle.bind(this, this.farm_land_detail));
         this.ClickEvent_Listerner(this.ui_objs, this.func_calls);
         // this.farm_land_normal.addEventListener(egret.TouchEvent.TOUCH_TAP,this.land_anim.bind,this)
     };
@@ -53,9 +53,14 @@ var Farmland = (function (_super) {
         }
     };
     //土地处理
-    Farmland.prototype.land_handle = function () {
+    Farmland.prototype.land_handle = function (farm_land_detail) {
+        var _this = this;
         console.log("土地处理");
-        // this.start_anim()
+        console.log(this.CreateLandId);
+        this.farm_land_detail.visible = true;
+        setTimeout(function () {
+            _this.farm_land_detail.visible = false;
+        }, 3000);
     };
     // //播放土地动画
     // private land_anim(){
@@ -70,10 +75,10 @@ var Farmland = (function (_super) {
         this.cai_anim.stop();
     };
     //点击弹窗
-    Farmland.prototype.cai_handle = function (farm_land_detail) {
-        console.log('蔬菜点击弹窗');
-        this.farm_land_detail.visible = true;
-    };
+    // public detail_handle(farm_land_detail) {
+    //     console.log('蔬菜点击弹窗')
+    //     this.farm_land_detail.visible = true
+    // }
     // //可扩地处理
     // private not_land_handle() {
     //     console.log("可扩地处理");
