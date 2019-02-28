@@ -1,5 +1,66 @@
 {
   "global": {
-    "globalAutoLayerMarkEnable": false
+    "globalAutoLayerMarkEnable": true,
+    "gridColor": 8421504,
+    "gridEnabled": false,
+    "gridSize": 20,
+    "globalRulerEnable": true,
+    "globalAdsorbEnable": true
+  },
+  "16932f93339": {
+    "guideLines": [
+      {
+        "type": "h",
+        "pos": 234
+      }
+    ]
+  },
+  "16932f9333a": {
+    "guideLinesEnabled": true,
+    "backgroundX": 0,
+    "backgroundY": 0,
+    "backgroundWidth": -1,
+    "backgroundHeight": -1,
+    "useBgImage": true,
+    "useBgColor": true,
+    "backgroundAlpha": 100,
+    "guideLines": [
+      {
+        "type": "h",
+        "pos": 521
+      }
+    ]
+  },
+  "1693309e5aa": {
+    "guideLinesEnabled": true
+  },
+  "1693309e5ab": {
+    "guideLines": [
+      {
+        "type": "h",
+        "pos": -97
+      },
+      {
+        "type": "h",
+        "pos": -94
+      },
+      {
+        "type": "h",
+        "pos": 86
+      },
+      {
+        "type": "h",
+        "pos": -97
+      },
+      {
+        "type": "h",
+        "pos": -99
+      },
+      {
+        "type": "h",
+        "pos": -96
+      }
+    ],
+    "guideLinesEnabled": false
   }
 }

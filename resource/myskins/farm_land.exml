@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="farm_land" width="340" height="354" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:tween="egret.tween.*">
+<e:Skin class="farm_land" width="340" height="268" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:tween="egret.tween.*">
+	<w:Config id="1693309e5ab"/>
 	<w:Declarations>
 		<tween:TweenGroup id="cai_anim">
 			<tween:TweenItem target="{farm_land_normal1}">
@@ -66,8 +67,14 @@
 			</tween:TweenItem>
 		</tween:TweenGroup>
 	</w:Declarations>
-	<e:Image id="farm_land_normal" source="land_1_png" left="-1" bottom="0" right="3" anchorOffsetX="1.32" anchorOffsetY="-0.77" height="185" touchEnabled="true"/>
-	<e:Image id="farm_land_cai" source="6_png" anchorOffsetX="-1.33" anchorOffsetY="1.33" touchEnabled="false" width="340" height="354" x="-1.33" y="1.33" pixelHitTest="true"/>
-	<e:Label id="farm_land_area" text="100㎡" x="36.63" y="294.73" rotation="29.28" anchorOffsetX="0" width="81.47" anchorOffsetY="0" height="34"/>
+	<e:Image id="farm_land_normal" source="land_1_png" left="0" bottom="0" right="0" anchorOffsetX="1.32" anchorOffsetY="0.23" height="185" touchEnabled="true"/>
+	<e:Image id="farm_land_cai" source="6_png" anchorOffsetX="0.15" anchorOffsetY="-1.07" touchEnabled="false" width="218.02" height="227" x="55.43" y="1.41" pixelHitTest="true"/>
+	<e:Label id="farm_land_area" text="{data}" x="31.19" y="209" rotation="29.28" anchorOffsetX="0" width="81.47" anchorOffsetY="0" height="34"/>
+	<e:Group id="farm_tip_manage" x="40" y="-0.38" visible="false">
+		<e:Image id="farm_sc_tip" source="land_tip_png" y="0" anchorOffsetX="0" width="260.12" anchorOffsetY="0" height="114.76" x="0"/>
+		<e:Label id="farm_sc_name" text="萝卜" y="11.38" size="30" textColor="0x000000" fontFamily="KaiTi" anchorOffsetX="0" width="100" multiline="false" verticalAlign="middle" textAlign="center" x="64"/>
+		<e:Label id="farm_sc_take" text="还有1小时收获" x="35.5" y="47.38" size="20" textColor="0x000000" fontFamily="KaiTi" anchorOffsetX="0" width="157" verticalAlign="middle" textAlign="center" multiline="false"/>
+		<e:Label id="farm_sc_area" text="99+㎡" x="46.57" y="77.38" size="20" fontFamily="KaiTi" textColor="0x000000" rotation="0.34" anchorOffsetX="0" width="133.99" anchorOffsetY="0" height="21.49" multiline="false" textAlign="center" verticalAlign="middle"/>
+	</e:Group>
 	<e:Image id="farm_land_detail" source="farm_name_png" x="42.5" y="140.73" visible="false"/>
 </e:Skin>

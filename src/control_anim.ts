@@ -50,10 +50,14 @@ class control_anim extends eui.Component {
 		// console.log(evt
 
 		//playX,playY是传入播放帧动画的坐标
-		let playX = evt.localX + 60
-		let playY = evt.localY + 20
+		let playX = evt.localX //+ 60
+		let playY = evt.localY //+ 20
 
 		//判断操作
+
+
+
+
 
 		console.log(this.Option_Type)
 		//需要浇水
@@ -61,6 +65,8 @@ class control_anim extends eui.Component {
 			this.Show_option_handle('water_0', '12', playX, playY)//this.Hiden_option_handle)
 		} else if (this.Option_Type == 'need_fertilize_png') {
 			console.log('施肥')
+
+			this.Show_option_handle('施肥', '滴滴施肥', playX, playY)//this.Hiden_option_handle)
 		} else if (this.Option_Type == 'need_weed_png') {
 			console.log('除草')
 
@@ -89,6 +95,11 @@ class control_anim extends eui.Component {
 		const item = event.data as egret.tween.TweenItem;
 		this.start_anim();
 	}
+
+
+
+
+
 	private Show_option_handle(name, Mcname, objectX, objectY) {//, callback: Function) {
 		var data = RES.getRes(`${name}_json`);
 		var txtr = RES.getRes(`${name}_png`);
@@ -114,6 +125,7 @@ class control_anim extends eui.Component {
 		this.image.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.handle_animClick.bind(this, this.Option_Type), this)
 
 	}
+
 
 
 }

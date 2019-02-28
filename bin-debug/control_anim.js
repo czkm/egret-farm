@@ -44,8 +44,8 @@ var control_anim = (function (_super) {
         console.log(OptinType);
         // console.log(evt
         //playX,playY是传入播放帧动画的坐标
-        var playX = evt.localX + 60;
-        var playY = evt.localY + 20;
+        var playX = evt.localX; //+ 60
+        var playY = evt.localY; //+ 20
         //判断操作
         console.log(this.Option_Type);
         //需要浇水
@@ -54,6 +54,7 @@ var control_anim = (function (_super) {
         }
         else if (this.Option_Type == 'need_fertilize_png') {
             console.log('施肥');
+            this.Show_option_handle('施肥', '滴滴施肥', playX, playY); //this.Hiden_option_handle)
         }
         else if (this.Option_Type == 'need_weed_png') {
             console.log('除草');
