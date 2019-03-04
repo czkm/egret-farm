@@ -22,8 +22,16 @@ var Farmland = (function (_super) {
         //土地面积
         _this.farm_land_area = null;
         _this.farm_land_cai = null;
-        //土地详情
-        _this.farm_land_detail = null;
+        //蔬菜动画组
+        _this.cai_anim = null;
+        //收货组
+        _this.take = null;
+        //土地详情管理组
+        _this.farm_tip_manage = null;
+        _this.farm_sc_tip = null;
+        _this.farm_sc_name = null;
+        _this.farm_sc_take = null;
+        _this.farm_sc_area = null;
         //创建时传入土地id
         _this.CreateLandId = null;
         //ui对象组
@@ -40,8 +48,9 @@ var Farmland = (function (_super) {
     }
     ;
     Farmland.prototype.OnComplete = function () {
+        Farmland._self = this;
         this.ui_objs.push(this.farm_land_normal);
-        this.func_calls.push(this.land_handle.bind(this, this.farm_land_detail));
+        this.func_calls.push(this.land_handle.bind(this, Farmland._self));
         this.ClickEvent_Listerner(this.ui_objs, this.func_calls);
         // this.farm_land_normal.addEventListener(egret.TouchEvent.TOUCH_TAP,this.land_anim.bind,this)
     };
@@ -56,22 +65,30 @@ var Farmland = (function (_super) {
         }
     };
     //土地处理
-    Farmland.prototype.land_handle = function (farm_land_detail) {
+    Farmland.prototype.land_handle = function () {
         var _this = this;
         console.log("土地处理");
         console.log(this.CreateLandId);
-        this.farm_land_detail.visible = true;
+        this.start_cai_anim();
+        this.farm_tip_manage.visible = true;
         setTimeout(function () {
-            _this.farm_land_detail.visible = false;
+            _this.farm_tip_manage.visible = false;
         }, 3000);
     };
     //蔬菜动画开始
-    Farmland.prototype.start_anim = function () {
+    Farmland.prototype.start_cai_anim = function () {
         this.cai_anim.play(0);
     };
     //蔬菜动画停止
-    Farmland.prototype.end_anim = function () {
+    Farmland.prototype.end_cai_anim = function () {
         this.cai_anim.stop();
+    };
+    //外部调用收获动画
+    Farmland.prototype.start_take_anim = function () {
+        this.take.play(0);
+    };
+    Farmland.prototype.end_take_anim = function () {
+        this.take.stop();
     };
     //土地图片变化
     Farmland.prototype.change_Landpic = function (land_src) {

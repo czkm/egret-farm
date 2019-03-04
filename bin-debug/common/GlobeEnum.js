@@ -51,10 +51,9 @@ var ScType;
 //操作状态
 var OptionType;
 (function (OptionType) {
-    OptionType[OptionType["normal"] = 0] = "normal";
-    OptionType[OptionType["need_water_png"] = 1] = "need_water_png";
-    OptionType[OptionType["need_fertilize_png"] = 2] = "need_fertilize_png";
-    OptionType[OptionType["need_weed_png"] = 3] = "need_weed_png";
-    OptionType[OptionType["need_take_png"] = 4] = "need_take_png";
+    OptionType[OptionType["need_water_png"] = 0] = "need_water_png";
+    OptionType[OptionType["need_fertilize_png"] = 1] = "need_fertilize_png";
+    OptionType[OptionType["need_weed_png"] = 2] = "need_weed_png";
+    OptionType[OptionType["need_take_png"] = 3] = "need_take_png";
 })(OptionType || (OptionType = {}));
 ;

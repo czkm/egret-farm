@@ -8,6 +8,9 @@
 
 
 class Farmland extends eui.Component {
+
+    static _self
+
     //土地默认
     public farm_land_normal: eui.Image = null;;
 
@@ -18,16 +21,25 @@ class Farmland extends eui.Component {
     public farm_land_cai: eui.Image = null;
 
 
-    //土地详情
-    public farm_land_detail: eui.Image = null;
+
 
     //蔬菜动画组
-    private cai_anim: egret.tween.TweenGroup;
+    public cai_anim: egret.tween.TweenGroup = null;
+    //收货组
+    public take: egret.tween.TweenGroup = null;
 
+
+    //土地详情管理组
+    public farm_tip_manage: eui.Group = null;
+    public farm_sc_tip: eui.Image = null;
+    public farm_sc_name: eui.Label = null;
+    public farm_sc_take: eui.Label = null;
+    public farm_sc_area: eui.Label = null;
 
 
     //创建时传入土地id
     public CreateLandId: Number = null
+
 
 
     //ui对象组
@@ -57,9 +69,9 @@ class Farmland extends eui.Component {
     }
 
     private OnComplete() {
-
+        Farmland._self = this
         this.ui_objs.push(this.farm_land_normal);
-        this.func_calls.push(this.land_handle.bind(this, this.farm_land_detail));
+        this.func_calls.push(this.land_handle.bind(this, Farmland._self));
         this.ClickEvent_Listerner(this.ui_objs, this.func_calls);
         // this.farm_land_normal.addEventListener(egret.TouchEvent.TOUCH_TAP,this.land_anim.bind,this)
 
@@ -75,26 +87,40 @@ class Farmland extends eui.Component {
     }
 
     //土地处理
-    private land_handle(farm_land_detail) {
+    private land_handle(this) {
         console.log("土地处理");
         console.log(this.CreateLandId)
-
-        this.farm_land_detail.visible = true
+        this.start_cai_anim()
+        this.farm_tip_manage.visible = true
         setTimeout(() => {
-
-            this.farm_land_detail.visible = false
+            this.farm_tip_manage.visible = false
         }, 3000)
+
+
+
     }
 
     //蔬菜动画开始
-    public start_anim() {
+    public start_cai_anim() {
         this.cai_anim.play(0);
     }
 
     //蔬菜动画停止
-    public end_anim() {
+    public end_cai_anim() {
         this.cai_anim.stop();
     }
+
+
+
+    //外部调用收获动画
+
+    public start_take_anim() {
+        this.take.play(0);
+    }
+    public end_take_anim() {
+        this.take.stop();
+    }
+
 
 
     //土地图片变化

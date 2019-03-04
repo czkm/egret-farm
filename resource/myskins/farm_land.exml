@@ -3,30 +3,26 @@
 	<w:Config id="1693309e5ab"/>
 	<w:Declarations>
 		<tween:TweenGroup id="cai_anim">
-			<tween:TweenItem target="{farm_land_normal1}">
-				<tween:Set>
+			<tween:TweenItem target="{farm_land_cai}">
+				<tween:Set/>
+				<tween:To duration="250">
 					<tween:props>
-						<e:Object x="{-1}" height="{36.94}" y="{203.06}" width="{332.73}" alpha="{0.5}"/>
-					</tween:props>
-				</tween:Set>
-				<tween:To duration="300">
-					<tween:props>
-						<e:Object scaleX="{0.5}" scaleY="{0.5}" width="{661.73}" alpha="{0.7}" height="{154.94}" x="{5}" y="{162.06}"/>
+						<e:Object rotation="{1}"/>
 					</tween:props>
 				</tween:To>
-				<tween:To duration="400">
+				<tween:To duration="250">
 					<tween:props>
-						<e:Object scaleX="{0.8}" scaleY="{0.8}" width="{431.73}" alpha="{0.8}" height="{190.69}" x="{-3}" y="{87.06}"/>
+						<e:Object rotation="{0}"/>
 					</tween:props>
 				</tween:To>
-				<tween:To duration="350">
+				<tween:To duration="250">
 					<tween:props>
-						<e:Object scaleX="{1.2}" scaleY="{1.5}" alpha="{0.9}" width="{352.56}" x="{-41.54}" height="{195.86}" y="{-54.78}"/>
+						<e:Object rotation="{-1}"/>
 					</tween:props>
 				</tween:To>
-				<tween:To duration="450" ease="elasticIn">
+				<tween:To duration="250">
 					<tween:props>
-						<e:Object scaleX="{1}" scaleY="{1}" width="{338.73}" height="{199.94}" x="{1}" y="{40.06}"/>
+						<e:Object rotation="{0}"/>
 					</tween:props>
 				</tween:To>
 			</tween:TweenItem>
@@ -34,42 +30,69 @@
 		<tween:TweenGroup id="take">
 			<tween:TweenItem target="{farm_land_cai}">
 				<tween:Set/>
-				<tween:To duration="250">
+				<tween:To duration="100" ease="elasticIn"/>
+				<tween:To duration="100"/>
+				<tween:To duration="100">
 					<tween:props>
-						<e:Object x="{0}" y="{-40}" alpha="{0.8}"/>
+						<e:Object y="{202}"/>
 					</tween:props>
 				</tween:To>
-				<tween:To duration="250">
+				<tween:To duration="100">
 					<tween:props>
-						<e:Object y="{-80}" alpha="{0.6}"/>
+						<e:Object y="{188}"/>
 					</tween:props>
 				</tween:To>
-				<tween:To duration="250">
+				<tween:To duration="100">
 					<tween:props>
-						<e:Object alpha="{0.6}" y="{-100}"/>
+						<e:Object y="{168}"/>
 					</tween:props>
 				</tween:To>
-				<tween:To duration="250">
+				<tween:To duration="100">
 					<tween:props>
-						<e:Object y="{-120}" alpha="{0.4}"/>
+						<e:Object y="{148}"/>
 					</tween:props>
 				</tween:To>
-				<tween:To duration="250">
+				<tween:To duration="100">
 					<tween:props>
-						<e:Object alpha="{0.2}" y="{-140}"/>
+						<e:Object y="{128}" x="{173}"/>
 					</tween:props>
 				</tween:To>
-				<tween:To duration="250">
+				<tween:To duration="100">
 					<tween:props>
-						<e:Object alpha="{0}"/>
+						<e:Object y="{108}" alpha="{0.85}"/>
+					</tween:props>
+				</tween:To>
+				<tween:To duration="100">
+					<tween:props>
+						<e:Object y="{88}" alpha="{0.65}"/>
+					</tween:props>
+				</tween:To>
+				<tween:To duration="100">
+					<tween:props>
+						<e:Object y="{68}" alpha="{0.5}"/>
+					</tween:props>
+				</tween:To>
+				<tween:To duration="100">
+					<tween:props>
+						<e:Object y="{48}" alpha="{0.35}"/>
+					</tween:props>
+				</tween:To>
+				<tween:To duration="100">
+					<tween:props>
+						<e:Object y="{28}" alpha="{0.2}"/>
+					</tween:props>
+				</tween:To>
+				<tween:To duration="100">
+					<tween:props>
+						<e:Object y="{8}" alpha="{0}"/>
 					</tween:props>
 				</tween:To>
 			</tween:TweenItem>
 		</tween:TweenGroup>
 	</w:Declarations>
-	<e:Image id="farm_land_normal" source="land_1_png" left="0" bottom="0" right="0" anchorOffsetX="1.32" anchorOffsetY="0.23" height="185" touchEnabled="true"/>
-	<e:Image id="farm_land_cai" source="6_png" anchorOffsetX="0.15" anchorOffsetY="-1.07" touchEnabled="false" width="218.02" height="227" x="55.43" y="1.41" pixelHitTest="true"/>
 	<e:Label id="farm_land_area" text="{data}" x="31.19" y="209" rotation="29.28" anchorOffsetX="0" width="81.47" anchorOffsetY="0" height="34"/>
+	<e:Image id="farm_land_normal" source="land_1_png" left="0" bottom="0" right="0" anchorOffsetX="1.32" anchorOffsetY="0.23" height="185" touchEnabled="true"/>
+	<e:Image id="farm_land_cai" source="DG_1_png" anchorOffsetX="155" width="310.49" anchorOffsetY="219" height="220" y="219" touchEnabled="false" pixelHitTest="true" x="170"/>
 	<e:Group id="farm_tip_manage" x="40" y="-0.38" visible="false">
 		<e:Image id="farm_sc_tip" source="land_tip_png" y="0" anchorOffsetX="0" width="260.12" anchorOffsetY="0" height="114.76" x="0"/>
 		<e:Label id="farm_sc_name" text="萝卜" y="11.38" size="30" textColor="0x000000" fontFamily="KaiTi" anchorOffsetX="0" width="100" multiline="false" verticalAlign="middle" textAlign="center" x="64"/>

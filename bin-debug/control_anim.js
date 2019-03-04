@@ -1,3 +1,4 @@
+//浇水施肥等动画控制类
 var __reflect = (this && this.__reflect) || function (p, c, t) {
     p.__class__ = c, t ? t.push(c) : t = [c], p.__types__ = p.__types__ ? t.concat(p.__types__) : t;
 };
@@ -8,17 +9,22 @@ var __extends = this && this.__extends || function __extends(t, e) {
 for (var i in e) e.hasOwnProperty(i) && (t[i] = e[i]);
 r.prototype = e.prototype, t.prototype = new r();
 };
-//浇水施肥等动画控制类
 var control_anim = (function (_super) {
     __extends(control_anim, _super);
-    function control_anim(Optype) {
+    function control_anim(Optype, land_node) {
         var _this = _super.call(this) || this;
+        //动画播放group
         _this.test_grop = null;
         _this.image = null;
         _this.Option_Type = null; //记录操作状态
+        // public option_anim: eui.Component = null;
+        //父节点
+        _this.land_node = null;
+        _this.https = null;
         _this.addEventListener(eui.UIEvent.COMPLETE, _this.on_complete, _this);
         _this.skinName = "resource/myskins/anim.exml";
         _this.Option_Type = Optype;
+        _this.land_node = land_node;
         return _this;
         // console.log(Optype)
         // console.log(this.Option_Type)
@@ -38,33 +44,63 @@ var control_anim = (function (_super) {
     };
     //点击监听
     control_anim.prototype.handle_animClick = function (OptinType, evt) {
+        //	图标隐藏
+        this.image.touchEnabled = false;
         this.image.visible = false;
         console.log(evt.localX); //65
         console.log(evt.localY); //39
         console.log(OptinType);
         // console.log(evt
         //playX,playY是传入播放帧动画的坐标
-        var playX = evt.localX; //+ 60
-        var playY = evt.localY; //+ 20
+        var playX = evt.localX + 60;
+        var playY = evt.localY + 20;
         //判断操作
         console.log(this.Option_Type);
         //需要浇水
         if (this.Option_Type == 'need_water_png') {
-            this.Show_option_handle('water_0', '12', playX, playY); //this.Hiden_option_handle)
+            //Farmland.start_shake_anim()
+            var data = 'type=0&tt=666';
+            control_anim._self = this;
+            this.https = new HttpRes(this.httpscallback.bind(control_anim._self));
+            this.https.setUrl("http://172.16.0.67:8001/future/type/change", "POST", "application/x-www-form-urlencoded", data);
+            this.https.httpInit();
+            this.Show_option_handle('User_option', 'water', playX, playY); //this.Hiden_option_handle)
+            this.land_node.start_cai_anim();
         }
         else if (this.Option_Type == 'need_fertilize_png') {
             console.log('施肥');
-            this.Show_option_handle('施肥', '滴滴施肥', playX, playY); //this.Hiden_option_handle)
+            var data = "type=1&tt=666";
+            control_anim._self = this;
+            this.https = new HttpRes(this.httpscallback.bind(control_anim._self));
+            this.https.setUrl("http://172.16.0.67:8001/future/type/change", "POST", "application/x-www-form-urlencoded", data);
+            this.https.httpInit();
+            this.Show_option_handle('User_option2', 'fertilize', playX, playY); //this.Hiden_option_handle)
+            this.land_node.start_cai_anim();
         }
         else if (this.Option_Type == 'need_weed_png') {
             console.log('除草');
+            var data = 'type=2&tt=666';
+            control_anim._self = this;
+            this.https = new HttpRes(this.httpscallback.bind(control_anim._self));
+            this.https.setUrl("http://172.16.0.67:8001/future/type/change", "POST", "application/x-www-form-urlencoded", data);
+            this.https.httpInit();
+            this.Show_option_handle('User_option2', 'weed', playX, playY); //this.Hiden_option_handle)
+            this.land_node.start_cai_anim();
         }
         else if (this.Option_Type == 'need_take_png') {
             console.log('收获');
+            var data = 'type=3&tt=666';
+            control_anim._self = this;
+            this.https = new HttpRes(this.httpscallback.bind(control_anim._self));
+            this.https.setUrl("http://172.16.0.67:8001/future/type/change", "POST", "application/x-www-form-urlencoded", data);
+            this.https.httpInit();
+            this.Show_option_handle('User_option2', 'take', playX, playY); //this.Hiden_option_handle)
+            this.land_node.start_take_anim();
         }
     };
     //皮肤加载成功监听
     control_anim.prototype.on_complete = function () {
+        control_anim._self = this;
         this.scale.addEventListener('itemComplete', this.onTweenItemComplete, this);
         this.start_anim();
         // this.image.name = "image TouchEvent";
@@ -75,6 +111,7 @@ var control_anim = (function (_super) {
         var item = event.data;
         this.start_anim();
     };
+    //播放浇水动画
     control_anim.prototype.Show_option_handle = function (name, Mcname, objectX, objectY) {
         var _this = this;
         var data = RES.getRes(name + "_json");
@@ -85,13 +122,43 @@ var control_anim = (function (_super) {
         Option_gif.y = objectY; //- 150
         this.test_grop.addChild(Option_gif);
         Option_gif.gotoAndPlay(0, 1);
+        //监听动画播放完成
         Option_gif.addEventListener(egret.Event.COMPLETE, function (e, test_grop) {
+            _this.land_node.start_cai_anim();
             console.log(e.type); //1次
-            // Option_gif.visible = false
+            Option_gif.visible = false;
             _this.test_grop.removeChild(Option_gif);
-            _this.removeChild(_this.test_grop);
+            _this.image.visible = true;
+            _this.image.touchEnabled = true;
+            _this.change_image(_this.Option_Type);
         }, this);
-        this.image.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.handle_animClick.bind(this, this.Option_Type), this);
+        //this.image.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.handle_animClick.bind(this, this.Option_Type), this)
+    };
+    //------------------------callback------------------
+    control_anim.prototype.httpscallback = function () {
+        var _this = this;
+        var res = JSON.parse(this.https.getDatas());
+        console.log(res);
+        //接下来无值
+        if (res.num2 == 4) {
+            console.log("res无值");
+            this.Option_Type = OptionType[res.num2];
+            //移除监听和组
+            setTimeout(function () {
+                _this.removeChild(_this.test_grop);
+                _this.image.removeEventListener(egret.TouchEvent.TOUCH_TAP, _this.handle_animClick.bind(_this, _this.Option_Type), _this);
+            }, 5000);
+        }
+        else if (res) {
+            console.log(OptionType[res.num2]);
+            // this.change_image(OptionType[res.num2])
+            this.Option_Type = OptionType[res.num2];
+            //记录状态值
+            console.log(this.Option_Type);
+        }
+        else {
+            console.log('err');
+        }
     };
     return control_anim;
 }(eui.Component));

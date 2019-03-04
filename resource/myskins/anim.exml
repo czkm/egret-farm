@@ -16,8 +16,7 @@
 			</tween:TweenItem>
 		</tween:TweenGroup>
 	</w:Declarations>
-	<e:Group id="test_grop" x="0" y="-0.65">
+	<e:Group id="test_grop" anchorOffsetX="0" anchorOffsetY="2" height="136" width="98" x="0" y="2" touchThrough="true" touchEnabled="false">
 		<e:Image id="image" source="need_water_png" x="14" y="27.65" width="70" height="85"/>
-		<e:Image id="test" source="bg_jpg" x="0" y="0" anchorOffsetX="0" width="97.48" anchorOffsetY="0" height="139.15" visible="false"/>
 	</e:Group>
 </e:Skin>

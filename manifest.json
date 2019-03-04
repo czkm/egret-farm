@@ -19,6 +19,6 @@
 		"bin-debug/ThemeAdapter.js",
 		"bin-debug/common/GameUtil.js",
 		"bin-debug/common/GlobeEnum.js",
-		"bin-debug/common/MovieControl.js"
+		"bin-debug/common/Https.js"
 	]
 }

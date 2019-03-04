@@ -1,11 +1,11 @@
 {
 	"groups": [
 		{
-			"keys": "checkbox_select_disabled_png,checkbox_select_down_png,checkbox_select_up_png,checkbox_unselect_png,selected_png,border_png,header_png,radiobutton_select_disabled_png,radiobutton_select_down_png,radiobutton_select_up_png,radiobutton_unselect_png,roundthumb_png,thumb_png,track_png,tracklight_png,handle_png,off_png,on_png,button_down_png,button_up_png,thumb_pb_png,track_pb_png,track_sb_png,bg_jpg,egret_icon_png,description_json,need_water_png,need_weed_png,need_fertilize_png,4_06_png,8草地_png,bocai_0_png,bocai_1_png,digua_0_png,digua_1_png,jiandou_1_png,luobo_0_png,luobo_1_png,卷心菜成熟期_03_png,卷心菜成长期_03_png,土豆成熟期_03_png,土豆成长期_03_png,幼苗_png,扩地_png,未开垦_png,未标题-1_03_png,生菜成熟期_03_png,生菜成长期_03_png,秋葵成熟期_03_png,秋葵成长期_03_png,种子_png,空心菜成熟期_03_png,空心菜成长期_03_png,花菜成熟期_03_png,花菜成长期_03_png,芹菜成熟期_03_png,芹菜成长期_03_png,茄子成熟期_03_png,茄子成长期_03_png,茼蒿成熟期_03_png,茼蒿成长期_03_png,莴苣成熟期_03_png,莴苣成长期_03_png,西红柿成熟期_03_png,西红柿成长期_03_png,豇豆成长期_03_png,韭菜成熟期_03_png,韭菜成长期_03_png,鸡毛菜成熟期_03_png,鸡毛菜成长期_03_png,1_png,2_01_png,3_01_png,4_03_png,5_03_png,6_06_png,7_03_png,8_03_png,10_03_png,animation1_json,animation1_png,cai_png,need_fertilize2_png,need_water2_png,need_weed2_png,useroption_json,useroption_png,括地图_png,施肥_json,施肥_png,fertilize_gif,water_gif,weed_gif,右_03_png,左_03_png,land_1_png,water_0_json,water_0_png,land_bg_png,BC_0_png,BC_1_png,DG_0_png,DG_1_png,HC_0_png,HC_1_png,JC_0_png,JC_1_png,JD_0_png,JD_1_png,JM_0_png,JM_1_png,JX_0_png,JX_1_png,KX_0_png,KX_1_png,LB_0_png,NY_0_png,QC_0_png,QC_1_png,QK_0_png,QK_1_png,QZ_0_png,QZ_1_png,SC_0_png,SC_1_png,TD_0_png,TD_1_png,TH_0_png,TH_1_png,WJ_0_png,WJ_1_png,XH_0_png,XH_1_png,ZZ_0_png,LB_1_png,land_0_png,land_2_png,need_take_png,user_option_bg_png,user_pack_png,user_pic_png,farm_name_png,user_camera_png,dt_06_png,kd_12_png,sh_09_png,wd_03_png,6_png,微信图片_20190227180359_png,land_tip_png,farm_light_png,farm_light_json",
+			"keys": "checkbox_select_disabled_png,checkbox_select_down_png,checkbox_select_up_png,checkbox_unselect_png,selected_png,border_png,header_png,radiobutton_select_disabled_png,radiobutton_select_down_png,radiobutton_select_up_png,radiobutton_unselect_png,roundthumb_png,thumb_png,track_png,tracklight_png,handle_png,off_png,on_png,button_down_png,button_up_png,thumb_pb_png,track_pb_png,track_sb_png,bg_jpg,egret_icon_png,description_json,need_water_png,need_weed_png,need_fertilize_png,fertilize_gif,water_gif,weed_gif,land_1_png,BC_0_png,BC_1_png,DG_0_png,DG_1_png,HC_0_png,HC_1_png,JC_0_png,JC_1_png,JD_0_png,JD_1_png,JM_0_png,JM_1_png,JX_0_png,JX_1_png,KX_0_png,KX_1_png,LB_0_png,NY_0_png,QC_0_png,QC_1_png,QK_0_png,QK_1_png,QZ_0_png,QZ_1_png,SC_0_png,SC_1_png,TD_0_png,TD_1_png,TH_0_png,TH_1_png,WJ_0_png,WJ_1_png,XH_0_png,XH_1_png,ZZ_0_png,LB_1_png,land_0_png,land_2_png,need_take_png,farm_name_png,6_png,land_tip_png,farm_light_png,farm_light_json,hx_1_png,wg_1_png,alert_bg_png,alert_tip_png,farm_name2_png,land_group2_png,take_gif,farm_animal_png,farm_animal2_png,farm_animal3_png,farm_animal4_png,farm_animal5_png,User_option_json,User_option_png,User_option2_png,User_option2_json,farm_animal6_png,farm_animal7_png,farm_land_bg_png,dog_json,dog_png,xh__0_png,loading_json,loading_png,load_bg_jpg",
 			"name": "preload"
 		},
 		{
-			"keys": "bg_jpg",
+			"keys": "loading_png,loading_json,load_bg_jpg",
 			"name": "loading"
 		}
 	],
@@ -156,311 +156,6 @@
 			"name": "need_fertilize_png"
 		},
 		{
-			"url": "assets/mysource/test/蔬菜状态/4_06.png",
-			"type": "image",
-			"name": "4_06_png"
-		},
-		{
-			"url": "assets/mysource/test/蔬菜状态/8草地.png",
-			"type": "image",
-			"name": "8草地_png"
-		},
-		{
-			"url": "assets/mysource/test/蔬菜状态/bocai_0.png",
-			"type": "image",
-			"name": "bocai_0_png"
-		},
-		{
-			"url": "assets/mysource/test/蔬菜状态/bocai_1.png",
-			"type": "image",
-			"name": "bocai_1_png"
-		},
-		{
-			"url": "assets/mysource/test/蔬菜状态/digua_0.png",
-			"type": "image",
-			"name": "digua_0_png"
-		},
-		{
-			"url": "assets/mysource/test/蔬菜状态/digua_1.png",
-			"type": "image",
-			"name": "digua_1_png"
-		},
-		{
-			"url": "assets/mysource/test/蔬菜状态/jiandou_1.png",
-			"type": "image",
-			"name": "jiandou_1_png"
-		},
-		{
-			"url": "assets/mysource/test/蔬菜状态/luobo_0.png",
-			"type": "image",
-			"name": "luobo_0_png"
-		},
-		{
-			"url": "assets/mysource/test/蔬菜状态/luobo_1.png",
-			"type": "image",
-			"name": "luobo_1_png"
-		},
-		{
-			"url": "assets/mysource/test/蔬菜状态/卷心菜成熟期_03.png",
-			"type": "image",
-			"name": "卷心菜成熟期_03_png"
-		},
-		{
-			"url": "assets/mysource/test/蔬菜状态/卷心菜成长期_03.png",
-			"type": "image",
-			"name": "卷心菜成长期_03_png"
-		},
-		{
-			"url": "assets/mysource/test/蔬菜状态/土豆成熟期_03.png",
-			"type": "image",
-			"name": "土豆成熟期_03_png"
-		},
-		{
-			"url": "assets/mysource/test/蔬菜状态/土豆成长期_03.png",
-			"type": "image",
-			"name": "土豆成长期_03_png"
-		},
-		{
-			"url": "assets/mysource/test/蔬菜状态/幼苗.png",
-			"type": "image",
-			"name": "幼苗_png"
-		},
-		{
-			"url": "assets/mysource/test/蔬菜状态/扩地.png",
-			"type": "image",
-			"name": "扩地_png"
-		},
-		{
-			"url": "assets/mysource/test/蔬菜状态/未开垦.png",
-			"type": "image",
-			"name": "未开垦_png"
-		},
-		{
-			"url": "assets/mysource/test/蔬菜状态/未标题-1_03.png",
-			"type": "image",
-			"name": "未标题-1_03_png"
-		},
-		{
-			"url": "assets/mysource/test/蔬菜状态/生菜成熟期_03.png",
-			"type": "image",
-			"name": "生菜成熟期_03_png"
-		},
-		{
-			"url": "assets/mysource/test/蔬菜状态/生菜成长期_03.png",
-			"type": "image",
-			"name": "生菜成长期_03_png"
-		},
-		{
-			"url": "assets/mysource/test/蔬菜状态/秋葵成熟期_03.png",
-			"type": "image",
-			"name": "秋葵成熟期_03_png"
-		},
-		{
-			"url": "assets/mysource/test/蔬菜状态/秋葵成长期_03.png",
-			"type": "image",
-			"name": "秋葵成长期_03_png"
-		},
-		{
-			"url": "assets/mysource/test/蔬菜状态/种子.png",
-			"type": "image",
-			"name": "种子_png"
-		},
-		{
-			"url": "assets/mysource/test/蔬菜状态/空心菜成熟期_03.png",
-			"type": "image",
-			"name": "空心菜成熟期_03_png"
-		},
-		{
-			"url": "assets/mysource/test/蔬菜状态/空心菜成长期_03.png",
-			"type": "image",
-			"name": "空心菜成长期_03_png"
-		},
-		{
-			"url": "assets/mysource/test/蔬菜状态/花菜成熟期_03.png",
-			"type": "image",
-			"name": "花菜成熟期_03_png"
-		},
-		{
-			"url": "assets/mysource/test/蔬菜状态/花菜成长期_03.png",
-			"type": "image",
-			"name": "花菜成长期_03_png"
-		},
-		{
-			"url": "assets/mysource/test/蔬菜状态/芹菜成熟期_03.png",
-			"type": "image",
-			"name": "芹菜成熟期_03_png"
-		},
-		{
-			"url": "assets/mysource/test/蔬菜状态/芹菜成长期_03.png",
-			"type": "image",
-			"name": "芹菜成长期_03_png"
-		},
-		{
-			"url": "assets/mysource/test/蔬菜状态/茄子成熟期_03.png",
-			"type": "image",
-			"name": "茄子成熟期_03_png"
-		},
-		{
-			"url": "assets/mysource/test/蔬菜状态/茄子成长期_03.png",
-			"type": "image",
-			"name": "茄子成长期_03_png"
-		},
-		{
-			"url": "assets/mysource/test/蔬菜状态/茼蒿成熟期_03.png",
-			"type": "image",
-			"name": "茼蒿成熟期_03_png"
-		},
-		{
-			"url": "assets/mysource/test/蔬菜状态/茼蒿成长期_03.png",
-			"type": "image",
-			"name": "茼蒿成长期_03_png"
-		},
-		{
-			"url": "assets/mysource/test/蔬菜状态/莴苣成熟期_03.png",
-			"type": "image",
-			"name": "莴苣成熟期_03_png"
-		},
-		{
-			"url": "assets/mysource/test/蔬菜状态/莴苣成长期_03.png",
-			"type": "image",
-			"name": "莴苣成长期_03_png"
-		},
-		{
-			"url": "assets/mysource/test/蔬菜状态/西红柿成熟期_03.png",
-			"type": "image",
-			"name": "西红柿成熟期_03_png"
-		},
-		{
-			"url": "assets/mysource/test/蔬菜状态/西红柿成长期_03.png",
-			"type": "image",
-			"name": "西红柿成长期_03_png"
-		},
-		{
-			"url": "assets/mysource/test/蔬菜状态/豇豆成长期_03.png",
-			"type": "image",
-			"name": "豇豆成长期_03_png"
-		},
-		{
-			"url": "assets/mysource/test/蔬菜状态/韭菜成熟期_03.png",
-			"type": "image",
-			"name": "韭菜成熟期_03_png"
-		},
-		{
-			"url": "assets/mysource/test/蔬菜状态/韭菜成长期_03.png",
-			"type": "image",
-			"name": "韭菜成长期_03_png"
-		},
-		{
-			"url": "assets/mysource/test/蔬菜状态/鸡毛菜成熟期_03.png",
-			"type": "image",
-			"name": "鸡毛菜成熟期_03_png"
-		},
-		{
-			"url": "assets/mysource/test/蔬菜状态/鸡毛菜成长期_03.png",
-			"type": "image",
-			"name": "鸡毛菜成长期_03_png"
-		},
-		{
-			"url": "assets/mysource/test/1.png",
-			"type": "image",
-			"name": "1_png"
-		},
-		{
-			"url": "assets/mysource/test/2_01.png",
-			"type": "image",
-			"name": "2_01_png"
-		},
-		{
-			"url": "assets/mysource/test/3_01.png",
-			"type": "image",
-			"name": "3_01_png"
-		},
-		{
-			"url": "assets/mysource/test/4_03.png",
-			"type": "image",
-			"name": "4_03_png"
-		},
-		{
-			"url": "assets/mysource/test/5_03.png",
-			"type": "image",
-			"name": "5_03_png"
-		},
-		{
-			"url": "assets/mysource/test/6_06.png",
-			"type": "image",
-			"name": "6_06_png"
-		},
-		{
-			"url": "assets/mysource/test/7_03.png",
-			"type": "image",
-			"name": "7_03_png"
-		},
-		{
-			"url": "assets/mysource/test/8_03.png",
-			"type": "image",
-			"name": "8_03_png"
-		},
-		{
-			"url": "assets/mysource/test/10_03.png",
-			"type": "image",
-			"name": "10_03_png"
-		},
-		{
-			"url": "assets/mysource/test/animation1.json",
-			"type": "json",
-			"name": "animation1_json"
-		},
-		{
-			"url": "assets/mysource/test/animation1.png",
-			"type": "image",
-			"name": "animation1_png"
-		},
-		{
-			"url": "assets/mysource/test/cai.png",
-			"type": "image",
-			"name": "cai_png"
-		},
-		{
-			"url": "assets/mysource/test/need_fertilize.png",
-			"type": "image",
-			"name": "need_fertilize2_png"
-		},
-		{
-			"url": "assets/mysource/test/need_water.png",
-			"type": "image",
-			"name": "need_water2_png"
-		},
-		{
-			"url": "assets/mysource/test/need_weed.png",
-			"type": "image",
-			"name": "need_weed2_png"
-		},
-		{
-			"url": "assets/mysource/test/useroption.json",
-			"type": "json",
-			"name": "useroption_json"
-		},
-		{
-			"url": "assets/mysource/test/useroption.png",
-			"type": "image",
-			"name": "useroption_png"
-		},
-		{
-			"url": "assets/mysource/test/括地图.png",
-			"type": "image",
-			"name": "括地图_png"
-		},
-		{
-			"url": "assets/mysource/test/施肥.json",
-			"type": "json",
-			"name": "施肥_json"
-		},
-		{
-			"url": "assets/mysource/test/施肥.png",
-			"type": "image",
-			"name": "施肥_png"
-		},
-		{
 			"url": "assets/mysource/fertilize.gif",
 			"type": "image",
 			"name": "fertilize_gif"
@@ -476,34 +171,9 @@
 			"name": "weed_gif"
 		},
 		{
-			"url": "assets/mysource/右_03.png",
-			"type": "image",
-			"name": "右_03_png"
-		},
-		{
-			"url": "assets/mysource/左_03.png",
-			"type": "image",
-			"name": "左_03_png"
-		},
-		{
 			"url": "assets/mysource/land_1.png",
 			"type": "image",
 			"name": "land_1_png"
-		},
-		{
-			"url": "assets/mysource/test/water_0.json",
-			"type": "json",
-			"name": "water_0_json"
-		},
-		{
-			"url": "assets/mysource/test/water_0.png",
-			"type": "image",
-			"name": "water_0_png"
-		},
-		{
-			"url": "assets/mysource/land_bg.png",
-			"type": "image",
-			"name": "land_bg_png"
 		},
 		{
 			"url": "assets/mysource/蔬菜/BC_0.png",
@@ -701,49 +371,9 @@
 			"name": "need_take_png"
 		},
 		{
-			"url": "assets/mysource/user_option_bg.png",
-			"type": "image",
-			"name": "user_option_bg_png"
-		},
-		{
-			"url": "assets/mysource/user_pack.png",
-			"type": "image",
-			"name": "user_pack_png"
-		},
-		{
-			"url": "assets/mysource/user_pic.png",
-			"type": "image",
-			"name": "user_pic_png"
-		},
-		{
 			"url": "assets/mysource/farm_name.png",
 			"type": "image",
 			"name": "farm_name_png"
-		},
-		{
-			"url": "assets/mysource/user_camera.png",
-			"type": "image",
-			"name": "user_camera_png"
-		},
-		{
-			"url": "assets/mysource/dt_06.png",
-			"type": "image",
-			"name": "dt_06_png"
-		},
-		{
-			"url": "assets/mysource/kd_12.png",
-			"type": "image",
-			"name": "kd_12_png"
-		},
-		{
-			"url": "assets/mysource/sh_09.png",
-			"type": "image",
-			"name": "sh_09_png"
-		},
-		{
-			"url": "assets/mysource/wd_03.png",
-			"type": "image",
-			"name": "wd_03_png"
 		},
 		{
 			"url": "assets/mysource/6.png",
@@ -751,24 +381,144 @@
 			"name": "6_png"
 		},
 		{
-			"name": "微信图片_20190227180359_png",
+			"url": "assets/mysource/land_tip.png",
 			"type": "image",
-			"url": "assets/mysource/微信图片_20190227180359.png"
+			"name": "land_tip_png"
 		},
 		{
-			"name": "land_tip_png",
+			"url": "assets/mysource/farm_light.png",
 			"type": "image",
-			"url": "assets/mysource/land_tip.png"
+			"name": "farm_light_png"
 		},
 		{
-			"name": "farm_light_png",
-			"type": "image",
-			"url": "assets/mysource/farm_light.png"
-		},
-		{
-			"name": "farm_light_json",
+			"url": "assets/mysource/farm_light.json",
 			"type": "json",
-			"url": "assets/mysource/farm_light.json"
+			"name": "farm_light_json"
+		},
+		{
+			"url": "assets/mysource/蔬菜/hx_1.png",
+			"type": "image",
+			"name": "hx_1_png"
+		},
+		{
+			"url": "assets/mysource/蔬菜/wg_1.png",
+			"type": "image",
+			"name": "wg_1_png"
+		},
+		{
+			"url": "assets/mysource/alert_bg.png",
+			"type": "image",
+			"name": "alert_bg_png"
+		},
+		{
+			"url": "assets/mysource/alert_tip.png",
+			"type": "image",
+			"name": "alert_tip_png"
+		},
+		{
+			"url": "assets/mysource/farm_name2.png",
+			"type": "image",
+			"name": "farm_name2_png"
+		},
+		{
+			"url": "assets/mysource/land_group2.png",
+			"type": "image",
+			"name": "land_group2_png"
+		},
+		{
+			"url": "assets/mysource/take.gif",
+			"type": "image",
+			"name": "take_gif"
+		},
+		{
+			"url": "assets/mysource/牧场/farm_animal.png",
+			"type": "image",
+			"name": "farm_animal_png"
+		},
+		{
+			"url": "assets/mysource/牧场/farm_animal2.png",
+			"type": "image",
+			"name": "farm_animal2_png"
+		},
+		{
+			"url": "assets/mysource/牧场/farm_animal3.png",
+			"type": "image",
+			"name": "farm_animal3_png"
+		},
+		{
+			"url": "assets/mysource/牧场/farm_animal4.png",
+			"type": "image",
+			"name": "farm_animal4_png"
+		},
+		{
+			"url": "assets/mysource/牧场/farm_animal5.png",
+			"type": "image",
+			"name": "farm_animal5_png"
+		},
+		{
+			"url": "assets/mysource/User_option.json",
+			"type": "json",
+			"name": "User_option_json"
+		},
+		{
+			"url": "assets/mysource/User_option.png",
+			"type": "image",
+			"name": "User_option_png"
+		},
+		{
+			"url": "assets/mysource/User_option2.png",
+			"type": "image",
+			"name": "User_option2_png"
+		},
+		{
+			"url": "assets/mysource/User_option2.json",
+			"type": "json",
+			"name": "User_option2_json"
+		},
+		{
+			"url": "assets/mysource/牧场/farm_animal6.png",
+			"type": "image",
+			"name": "farm_animal6_png"
+		},
+		{
+			"url": "assets/mysource/牧场/farm_animal7.png",
+			"type": "image",
+			"name": "farm_animal7_png"
+		},
+		{
+			"url": "assets/mysource/farm_land_bg.png",
+			"type": "image",
+			"name": "farm_land_bg_png"
+		},
+		{
+			"url": "assets/mysource/dog.json",
+			"type": "json",
+			"name": "dog_json"
+		},
+		{
+			"url": "assets/mysource/dog.png",
+			"type": "image",
+			"name": "dog_png"
+		},
+		{
+			"url": "assets/mysource/蔬菜/xh__0.png",
+			"type": "image",
+			"name": "xh__0_png"
+		},
+		{
+			"url": "assets/mysource/loading.json",
+			"type": "json",
+			"name": "loading_json"
+		},
+		{
+			"url": "assets/mysource/loading.png",
+			"type": "image",
+			"name": "loading_png"
+		},
+		{
+			"url": "assets/mysource/load_bg.jpg",
+			"type": "image",
+			"name": "load_bg_jpg"
 		}
 	]
 }
