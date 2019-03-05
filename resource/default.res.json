@@ -1,7 +1,7 @@
 {
 	"groups": [
 		{
-			"keys": "checkbox_select_disabled_png,checkbox_select_down_png,checkbox_select_up_png,checkbox_unselect_png,selected_png,border_png,header_png,radiobutton_select_disabled_png,radiobutton_select_down_png,radiobutton_select_up_png,radiobutton_unselect_png,roundthumb_png,thumb_png,track_png,tracklight_png,handle_png,off_png,on_png,button_down_png,button_up_png,thumb_pb_png,track_pb_png,track_sb_png,bg_jpg,egret_icon_png,description_json,need_water_png,need_weed_png,need_fertilize_png,fertilize_gif,water_gif,weed_gif,land_1_png,BC_0_png,BC_1_png,DG_0_png,DG_1_png,HC_0_png,HC_1_png,JC_0_png,JC_1_png,JD_0_png,JD_1_png,JM_0_png,JM_1_png,JX_0_png,JX_1_png,KX_0_png,KX_1_png,LB_0_png,NY_0_png,QC_0_png,QC_1_png,QK_0_png,QK_1_png,QZ_0_png,QZ_1_png,SC_0_png,SC_1_png,TD_0_png,TD_1_png,TH_0_png,TH_1_png,WJ_0_png,WJ_1_png,XH_0_png,XH_1_png,ZZ_0_png,LB_1_png,land_0_png,land_2_png,need_take_png,farm_name_png,6_png,land_tip_png,farm_light_png,farm_light_json,hx_1_png,wg_1_png,alert_bg_png,alert_tip_png,farm_name2_png,land_group2_png,take_gif,farm_animal_png,farm_animal2_png,farm_animal3_png,farm_animal4_png,farm_animal5_png,User_option_json,User_option_png,User_option2_png,User_option2_json,farm_animal6_png,farm_animal7_png,farm_land_bg_png,dog_json,dog_png,xh__0_png,loading_json,loading_png,load_bg_jpg",
+			"keys": "checkbox_select_disabled_png,checkbox_select_down_png,checkbox_select_up_png,checkbox_unselect_png,selected_png,border_png,header_png,radiobutton_select_disabled_png,radiobutton_select_down_png,radiobutton_select_up_png,radiobutton_unselect_png,roundthumb_png,thumb_png,track_png,tracklight_png,handle_png,off_png,on_png,button_down_png,button_up_png,thumb_pb_png,track_pb_png,track_sb_png,bg_jpg,egret_icon_png,description_json,need_water_png,need_weed_png,need_fertilize_png,land_1_png,BC_0_png,BC_1_png,DG_0_png,DG_1_png,HC_0_png,HC_1_png,JC_0_png,JC_1_png,JD_0_png,JD_1_png,JM_0_png,JM_1_png,JX_0_png,JX_1_png,KX_0_png,KX_1_png,LB_0_png,NY_0_png,QC_0_png,QC_1_png,QK_0_png,QK_1_png,QZ_0_png,QZ_1_png,SC_0_png,SC_1_png,TD_0_png,TD_1_png,TH_0_png,TH_1_png,WJ_0_png,WJ_1_png,XH_0_png,XH_1_png,ZZ_0_png,LB_1_png,land_0_png,land_2_png,need_take_png,farm_name_png,6_png,land_tip_png,farm_light_png,farm_light_json,hx_1_png,wg_1_png,alert_bg_png,alert_tip_png,farm_name2_png,land_group2_png,take_gif,farm_animal_png,farm_animal2_png,farm_animal3_png,farm_animal4_png,farm_animal5_png,User_option_json,User_option_png,User_option2_png,User_option2_json,farm_animal6_png,farm_animal7_png,farm_land_bg_png,dog_json,dog_png,xh__0_png,loading_json,loading_png,load_bg_jpg",
 			"name": "preload"
 		},
 		{
@@ -154,21 +154,6 @@
 			"url": "assets/mysource/need_fertilize.png",
 			"type": "image",
 			"name": "need_fertilize_png"
-		},
-		{
-			"url": "assets/mysource/fertilize.gif",
-			"type": "image",
-			"name": "fertilize_gif"
-		},
-		{
-			"url": "assets/mysource/water.gif",
-			"type": "image",
-			"name": "water_gif"
-		},
-		{
-			"url": "assets/mysource/weed.gif",
-			"type": "image",
-			"name": "weed_gif"
 		},
 		{
 			"url": "assets/mysource/land_1.png",

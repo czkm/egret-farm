@@ -9,16 +9,14 @@ class control_anim extends eui.Component {
 
 	private image: eui.Image = null;
 
-
 	private Option_Type = null; //记录操作状态
-	// public option_anim: eui.Component = null;
 
 	//父节点
 	public land_node: Farmland = null;
 
 	private scale: egret.tween.TweenGroup;
 
-
+	//请求实例
 	private https: HttpRes = null;
 
 
@@ -26,27 +24,28 @@ class control_anim extends eui.Component {
 		super();
 		this.addEventListener(eui.UIEvent.COMPLETE, this.on_complete, this);
 		this.skinName = "resource/myskins/anim.exml";
+		//操作状态
 		this.Option_Type = Optype
+		//传入节点
 		this.land_node = land_node;
-		// console.log(Optype)
-		// console.log(this.Option_Type)
+
+	}
+	//皮肤加载成功监听
+	private on_complete() {
+		control_anim._self = this
+
+		this.scale.addEventListener('itemComplete', this.onTweenItemComplete, this);
+		this.start_anim();
+		// this.image.name = "image TouchEvent";
+
+		this.image.addEventListener(egret.TouchEvent.TOUCH_TAP, this.handle_animClick.bind(this, this.Option_Type), this)
 	}
 
 
-
-	//动画开始
-	public start_anim() {
-		this.scale.play(0);
-	}
-
-	//动画停止
-	public end_anim() {
-		this.scale.stop();
-	}
-
-	//动画图片更换
-	public change_image(src_load: string) {
-		this.image.source = src_load;
+	//监听动画组某个动画播放完成
+	private onTweenItemComplete(event: egret.Event) {
+		const item = event.data as egret.tween.TweenItem;
+		this.start_anim();
 	}
 
 
@@ -58,8 +57,6 @@ class control_anim extends eui.Component {
 		this.image.visible = false;
 
 
-		console.log(evt.localX)//65
-		console.log(evt.localY)//39
 
 		console.log(OptinType)
 		// console.log(evt
@@ -72,9 +69,14 @@ class control_anim extends eui.Component {
 
 		console.log(this.Option_Type)
 
+		//播放摇曳动画
+		this.land_node.start_cai_anim();
+
+
 		//需要浇水
 		if (this.Option_Type == 'need_water_png') {
 			//Farmland.start_shake_anim()
+
 
 			let data = 'type=0&tt=666'
 			control_anim._self = this
@@ -85,7 +87,7 @@ class control_anim extends eui.Component {
 
 			this.Show_option_handle('User_option', 'water', playX, playY)//this.Hiden_option_handle)
 
-			this.land_node.start_cai_anim();
+
 
 		} else if (this.Option_Type == 'need_fertilize_png') {
 			console.log('施肥')
@@ -99,7 +101,6 @@ class control_anim extends eui.Component {
 
 			this.Show_option_handle('User_option2', 'fertilize', playX, playY)//this.Hiden_option_handle)
 
-			this.land_node.start_cai_anim();
 		} else if (this.Option_Type == 'need_weed_png') {
 
 			console.log('除草')
@@ -112,7 +113,6 @@ class control_anim extends eui.Component {
 
 
 			this.Show_option_handle('User_option2', 'weed', playX, playY)//this.Hiden_option_handle)
-			this.land_node.start_cai_anim();
 
 		} else if (this.Option_Type == 'need_take_png') {
 			console.log('收获')
@@ -127,33 +127,22 @@ class control_anim extends eui.Component {
 
 			this.Show_option_handle('User_option2', 'take', playX, playY)//this.Hiden_option_handle)
 
+			//收获动画
 			this.land_node.start_take_anim();
+
+			//收获动画后清空土地数据
+			this.land_node.tipclose_handle()
+			this.land_node.farm_land_area.visible = false
+
+
+
 
 		}
 
-
-
-
 	}
 
 
 
-	//皮肤加载成功监听
-	private on_complete() {
-		control_anim._self = this
-
-		this.scale.addEventListener('itemComplete', this.onTweenItemComplete, this);
-		this.start_anim();
-		// this.image.name = "image TouchEvent";
-
-		this.image.addEventListener(egret.TouchEvent.TOUCH_TAP, this.handle_animClick.bind(this, this.Option_Type), this)
-	}
-
-	//监听动画组某个动画播放完成
-	private onTweenItemComplete(event: egret.Event) {
-		const item = event.data as egret.tween.TweenItem;
-		this.start_anim();
-	}
 
 
 
@@ -161,20 +150,13 @@ class control_anim extends eui.Component {
 
 	private Show_option_handle(name, Mcname, objectX, objectY) {//, callback: Function) {
 
-
-
-
-
 		var data = RES.getRes(`${name}_json`);
 		var txtr = RES.getRes(`${name}_png`);
 		var mcFactory: egret.MovieClipDataFactory = new egret.MovieClipDataFactory(data, txtr);
 		var Option_gif: egret.MovieClip = new egret.MovieClip(mcFactory.generateMovieClipData(`${Mcname}`));
 
-
-
 		Option_gif.x = objectX //- 150
 		Option_gif.y = objectY //- 150
-
 
 
 		this.test_grop.addChild(Option_gif);
@@ -186,8 +168,6 @@ class control_anim extends eui.Component {
 
 			console.log(e.type);//1次
 			Option_gif.visible = false
-
-
 			this.test_grop.removeChild(Option_gif)
 
 
@@ -203,6 +183,21 @@ class control_anim extends eui.Component {
 	}
 
 
+	//-----------------动画操作组-----------------
+	//动画开始
+	public start_anim() {
+		this.scale.play(0);
+	}
+
+	//动画停止
+	public end_anim() {
+		this.scale.stop();
+	}
+
+	//动画图片更换
+	public change_image(src_load: string) {
+		this.image.source = src_load;
+	}
 	//------------------------callback------------------
 	private httpscallback(this) {
 
@@ -222,9 +217,10 @@ class control_anim extends eui.Component {
 		}
 		else if (res) {
 
-			console.log(OptionType[res.num2])
-			// this.change_image(OptionType[res.num2])
 			this.Option_Type = OptionType[res.num2]
+
+			//土地颜色变深
+			this.land_node.change_Landpic(landType[res.landType])
 			//记录状态值
 			console.log(this.Option_Type)
 		}

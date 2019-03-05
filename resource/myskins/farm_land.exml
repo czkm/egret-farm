@@ -99,5 +99,4 @@
 		<e:Label id="farm_sc_take" text="还有1小时收获" x="35.5" y="47.38" size="20" textColor="0x000000" fontFamily="KaiTi" anchorOffsetX="0" width="157" verticalAlign="middle" textAlign="center" multiline="false"/>
 		<e:Label id="farm_sc_area" text="99+㎡" x="46.57" y="77.38" size="20" fontFamily="KaiTi" textColor="0x000000" rotation="0.34" anchorOffsetX="0" width="133.99" anchorOffsetY="0" height="21.49" multiline="false" textAlign="center" verticalAlign="middle"/>
 	</e:Group>
-	<e:Image id="farm_land_detail" source="farm_name_png" x="42.5" y="140.73" visible="false"/>
 </e:Skin>

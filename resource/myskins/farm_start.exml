@@ -3,16 +3,26 @@
 	<w:Config id="16932f9333a"/>
 	<w:Declarations>
 		<tween:TweenGroup id="alert_tip">
-			<tween:TweenItem target="{image}">
+			<tween:TweenItem target="{alert_icon}">
 				<tween:Set/>
-				<tween:To duration="750">
+				<tween:To duration="250">
 					<tween:props>
-						<e:Object scaleX="{0.5}" scaleY="{0.5}" rotation="{4.18}" y="{25.17}" x="{37.1}"/>
+						<e:Object scaleX="{0.77}" scaleY="{0.77}" rotation="{1.95}" x="{39.87}" y="{39.92}"/>
 					</tween:props>
 				</tween:To>
-				<tween:To duration="750">
+				<tween:To duration="250">
 					<tween:props>
-						<e:Object scaleX="{1}" scaleY="{1}" y="{13.02}" x="{32.54}"/>
+						<e:Object scaleX="{0.5}" scaleY="{0.5}" x="{39.72}" y="{39.73}" rotation="{12}"/>
+					</tween:props>
+				</tween:To>
+				<tween:To duration="250">
+					<tween:props>
+						<e:Object scaleX="{0.73}" scaleY="{0.73}" x="{39.75}" y="{39.97}" rotation="{25.59}"/>
+					</tween:props>
+				</tween:To>
+				<tween:To duration="250">
+					<tween:props>
+						<e:Object rotation="{0}"/>
 					</tween:props>
 				</tween:To>
 			</tween:TweenItem>
@@ -20,13 +30,13 @@
 	</w:Declarations>
 	<e:Scroller id="scroller" width="750" height="1334" anchorOffsetY="0" anchorOffsetX="0" x="0" y="0">
 		<e:Group id="viewportGroup" anchorOffsetX="0" width="750" anchorOffsetY="0" height="1334" y="176">
-			<e:Image id="farm_land_bg" anchorOffsetX="0" anchorOffsetY="0" height="1492.73" width="2250" x="0" y="0" source="farm_land_bg_png"/>
+			<e:Image id="farm_land_bg" anchorOffsetX="0" anchorOffsetY="0" height="1500.31" width="2250" x="0" source="farm_land_bg_png" y="0"/>
 			<e:Image id="farm_group2_set" source="farm_name2_png" x="740.09" y="318.91" anchorOffsetX="0" width="123.34" anchorOffsetY="0" height="228.05"/>
 			<e:Group id="farm_land_dog" width="61.59" height="64.62" x="624.76" y="522.18" anchorOffsetX="0" anchorOffsetY="0"/>
 			<e:Group id="farm_land_light" width="200" height="200" x="926" y="-77.09" rotation="3.07"/>
 			<e:Group id="alert_manage" width="78.79" height="78.79" x="274" y="142.69" anchorOffsetX="0" anchorOffsetY="0">
-				<e:Image source="alert_bg_png" anchorOffsetX="0" anchorOffsetY="0" height="78.79" y="0" width="78.79" x="0"/>
-				<e:Image id="image" source="alert_tip_png" x="29.53" y="16.05" anchorOffsetX="0" width="19.71" anchorOffsetY="0" height="46.67"/>
+				<e:Image id="alert_bg" source="alert_bg_png" anchorOffsetX="0" anchorOffsetY="0" height="78.79" y="0" width="78.79" x="0"/>
+				<e:Image id="alert_icon" source="alert_tip_png" x="40.03" y="40.05" anchorOffsetX="10.5" width="19.71" anchorOffsetY="24" height="46.67"/>
 			</e:Group>
 			<e:Group id="farm_set_group" x="38.23" y="243.33">
 				<e:Image id="farm_land_set" source="farm_name_png" x="0" y="0" touchEnabled="true" anchorOffsetX="0" width="146.3" anchorOffsetY="0" height="202.99"/>
@@ -45,7 +55,6 @@
 				</e:Group>
 			</e:Group>
 			<e:Group id="farm_land_group2" anchorOffsetX="0" anchorOffsetY="0" height="878" width="700" x="764.09" bottom="0">
-				<e:Image id="farm_normal" source="land_group2_png" x="51.79" y="93.97" anchorOffsetX="0" width="555.14" anchorOffsetY="0" height="766"/>
 				<e:Group id="farm_land_position2" x="45.28" y="2" visible="false">
 					<e:Component id="farm_land0" width="340" height="268" x="31.38" y="0" skinName="farm_land" anchorOffsetX="0" anchorOffsetY="0"/>
 					<e:Component id="farm_land7" width="340" height="268" x="257.38" y="112" skinName="farm_land" anchorOffsetX="0" anchorOffsetY="0"/>
@@ -54,8 +63,15 @@
 					<e:Component id="farm_land10" width="340" height="268" x="0" y="423" skinName="farm_land" anchorOffsetX="0" anchorOffsetY="0"/>
 					<e:Component id="farm_land11" width="340" height="268" x="241.38" y="538" skinName="farm_land" anchorOffsetX="0" anchorOffsetY="0"/>
 				</e:Group>
+				<e:Group id="farm_less_six" x="51.79" y="93.97" touchChildren="false" touchEnabled="false" touchThrough="false">
+					<e:Image id="farm_normal" source="land_group2_png" x="0" y="0" anchorOffsetX="0" width="555.14" anchorOffsetY="0" height="766"/>
+					<e:Label id="group2_label_1" text="{data}" x="475.11" y="162.12" backgroundColor="0x000000" borderColor="0x000000" textColor="0x000000" rotation="335.24" anchorOffsetX="0" width="66.86" anchorOffsetY="0" height="70" italic="true" size="20" verticalAlign="justify" textAlign="center"/>
+					<e:Label id="group2_label_2" x="475.11" y="327.25" backgroundColor="0x000000" borderColor="0x000000" textColor="0x000000" rotation="333.34" anchorOffsetX="0" width="66.86" anchorOffsetY="0" height="70" italic="true" size="20" text="{data}" textAlign="center"/>
+					<e:Label id="group2_label_3" text="{data}" x="475.11" y="485.94" backgroundColor="0x000000" borderColor="0x000000" textColor="0x000000" rotation="335.24" anchorOffsetX="0" width="66.86" anchorOffsetY="0" height="70" italic="true" size="20" textAlign="center"/>
+					<e:Label id="group2_label_4" text="{data}" x="475.11" y="648.47" backgroundColor="0x000000" borderColor="0x000000" textColor="0x000000" rotation="335.24" anchorOffsetX="0" width="66.86" anchorOffsetY="0" height="70" italic="true" size="20" textAlign="center"/>
+				</e:Group>
 			</e:Group>
-			<e:Group id="farm_land_animal" width="539.39" height="727.27" x="1572.3" y="634.73" anchorOffsetX="0" anchorOffsetY="0">
+			<e:Group id="farm_land_animal" width="539.39" height="698.48" x="1572.3" y="634.73" anchorOffsetX="0" anchorOffsetY="0">
 				<e:Image source="farm_animal_png" x="194" y="143.91" anchorOffsetX="0" width="53" anchorOffsetY="0" height="29.12"/>
 				<e:Image source="farm_animal2_png" x="287.5" y="41.37" anchorOffsetX="0" width="67.73" anchorOffsetY="0" height="70.27"/>
 				<e:Image source="farm_animal2_png" x="75.27" y="176" anchorOffsetX="0" width="67.73" anchorOffsetY="0" height="70.27"/>

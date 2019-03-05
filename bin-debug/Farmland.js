@@ -14,17 +14,17 @@ r.prototype = e.prototype, t.prototype = new r();
  */
 var Farmland = (function (_super) {
     __extends(Farmland, _super);
-    function Farmland(CLid, landArea) {
+    function Farmland(CLid, landArea, type) {
         var _this = _super.call(this) || this;
         //土地默认
         _this.farm_land_normal = null;
-        _this.need_anim = null;
         //土地面积
         _this.farm_land_area = null;
+        //蔬菜
         _this.farm_land_cai = null;
         //蔬菜动画组
         _this.cai_anim = null;
-        //收货组
+        //收获动画组
         _this.take = null;
         //土地详情管理组
         _this.farm_tip_manage = null;
@@ -34,6 +34,8 @@ var Farmland = (function (_super) {
         _this.farm_sc_area = null;
         //创建时传入土地id
         _this.CreateLandId = null;
+        //创建时传入土地状态
+        _this.ltype = null;
         //ui对象组
         _this.ui_objs = new Array();
         //回调方法组
@@ -42,8 +44,15 @@ var Farmland = (function (_super) {
         _this.skinName = "resource/myskins/farm_land.exml";
         //土地id
         _this.CreateLandId = CLid;
+        _this.ltype = landType[type];
         //土地面积
         _this.farm_land_area.text = landArea + "\u33A1";
+        _this.change_Landpic(_this.ltype);
+        if (!landArea) {
+            Farmland._self.tipclose_handle();
+            _this.change_Landpic('land_0_png');
+            console.log("土地无面积");
+        }
         return _this;
     }
     ;
@@ -69,7 +78,6 @@ var Farmland = (function (_super) {
         var _this = this;
         console.log("土地处理");
         console.log(this.CreateLandId);
-        this.start_cai_anim();
         this.farm_tip_manage.visible = true;
         setTimeout(function () {
             _this.farm_tip_manage.visible = false;
@@ -83,7 +91,7 @@ var Farmland = (function (_super) {
     Farmland.prototype.end_cai_anim = function () {
         this.cai_anim.stop();
     };
-    //外部调用收获动画
+    //收获动画
     Farmland.prototype.start_take_anim = function () {
         this.take.play(0);
     };
@@ -94,14 +102,14 @@ var Farmland = (function (_super) {
     Farmland.prototype.change_Landpic = function (land_src) {
         this.farm_land_normal.source = land_src;
     };
+    //蔬菜图片变化
     Farmland.prototype.change_Caipic = function (Cai_src) {
         this.farm_land_cai.source = Cai_src;
     };
-    //----静态成员----//
-    //施肥等操作资源路径组
-    Farmland.need_srcs = new Array();
-    //计数标记【只是做例子用不一定非这样】
-    Farmland.indexs = 0;
+    Farmland.prototype.tipclose_handle = function () {
+        this.farm_land_normal.touchEnabled = false;
+        this.farm_land_area.visible = false;
+    };
     return Farmland;
 }(eui.Component));
 __reflect(Farmland.prototype, "Farmland");

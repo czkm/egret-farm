@@ -17,87 +17,19 @@ var control_anim = (function (_super) {
         _this.test_grop = null;
         _this.image = null;
         _this.Option_Type = null; //记录操作状态
-        // public option_anim: eui.Component = null;
         //父节点
         _this.land_node = null;
+        //请求实例
         _this.https = null;
         _this.addEventListener(eui.UIEvent.COMPLETE, _this.on_complete, _this);
         _this.skinName = "resource/myskins/anim.exml";
+        //操作状态
         _this.Option_Type = Optype;
+        //传入节点
         _this.land_node = land_node;
         return _this;
-        // console.log(Optype)
-        // console.log(this.Option_Type)
     }
     ;
-    //动画开始
-    control_anim.prototype.start_anim = function () {
-        this.scale.play(0);
-    };
-    //动画停止
-    control_anim.prototype.end_anim = function () {
-        this.scale.stop();
-    };
-    //动画图片更换
-    control_anim.prototype.change_image = function (src_load) {
-        this.image.source = src_load;
-    };
-    //点击监听
-    control_anim.prototype.handle_animClick = function (OptinType, evt) {
-        //	图标隐藏
-        this.image.touchEnabled = false;
-        this.image.visible = false;
-        console.log(evt.localX); //65
-        console.log(evt.localY); //39
-        console.log(OptinType);
-        // console.log(evt
-        //playX,playY是传入播放帧动画的坐标
-        var playX = evt.localX + 60;
-        var playY = evt.localY + 20;
-        //判断操作
-        console.log(this.Option_Type);
-        //需要浇水
-        if (this.Option_Type == 'need_water_png') {
-            //Farmland.start_shake_anim()
-            var data = 'type=0&tt=666';
-            control_anim._self = this;
-            this.https = new HttpRes(this.httpscallback.bind(control_anim._self));
-            this.https.setUrl("http://172.16.0.67:8001/future/type/change", "POST", "application/x-www-form-urlencoded", data);
-            this.https.httpInit();
-            this.Show_option_handle('User_option', 'water', playX, playY); //this.Hiden_option_handle)
-            this.land_node.start_cai_anim();
-        }
-        else if (this.Option_Type == 'need_fertilize_png') {
-            console.log('施肥');
-            var data = "type=1&tt=666";
-            control_anim._self = this;
-            this.https = new HttpRes(this.httpscallback.bind(control_anim._self));
-            this.https.setUrl("http://172.16.0.67:8001/future/type/change", "POST", "application/x-www-form-urlencoded", data);
-            this.https.httpInit();
-            this.Show_option_handle('User_option2', 'fertilize', playX, playY); //this.Hiden_option_handle)
-            this.land_node.start_cai_anim();
-        }
-        else if (this.Option_Type == 'need_weed_png') {
-            console.log('除草');
-            var data = 'type=2&tt=666';
-            control_anim._self = this;
-            this.https = new HttpRes(this.httpscallback.bind(control_anim._self));
-            this.https.setUrl("http://172.16.0.67:8001/future/type/change", "POST", "application/x-www-form-urlencoded", data);
-            this.https.httpInit();
-            this.Show_option_handle('User_option2', 'weed', playX, playY); //this.Hiden_option_handle)
-            this.land_node.start_cai_anim();
-        }
-        else if (this.Option_Type == 'need_take_png') {
-            console.log('收获');
-            var data = 'type=3&tt=666';
-            control_anim._self = this;
-            this.https = new HttpRes(this.httpscallback.bind(control_anim._self));
-            this.https.setUrl("http://172.16.0.67:8001/future/type/change", "POST", "application/x-www-form-urlencoded", data);
-            this.https.httpInit();
-            this.Show_option_handle('User_option2', 'take', playX, playY); //this.Hiden_option_handle)
-            this.land_node.start_take_anim();
-        }
-    };
     //皮肤加载成功监听
     control_anim.prototype.on_complete = function () {
         control_anim._self = this;
@@ -110,6 +42,63 @@ var control_anim = (function (_super) {
     control_anim.prototype.onTweenItemComplete = function (event) {
         var item = event.data;
         this.start_anim();
+    };
+    //点击监听
+    control_anim.prototype.handle_animClick = function (OptinType, evt) {
+        //	图标隐藏
+        this.image.touchEnabled = false;
+        this.image.visible = false;
+        console.log(OptinType);
+        // console.log(evt
+        //playX,playY是传入播放帧动画的坐标
+        var playX = evt.localX + 60;
+        var playY = evt.localY + 20;
+        //判断操作
+        console.log(this.Option_Type);
+        //播放摇曳动画
+        this.land_node.start_cai_anim();
+        //需要浇水
+        if (this.Option_Type == 'need_water_png') {
+            //Farmland.start_shake_anim()
+            var data = 'type=0&tt=666';
+            control_anim._self = this;
+            this.https = new HttpRes(this.httpscallback.bind(control_anim._self));
+            this.https.setUrl("http://172.16.0.67:8001/future/type/change", "POST", "application/x-www-form-urlencoded", data);
+            this.https.httpInit();
+            this.Show_option_handle('User_option', 'water', playX, playY); //this.Hiden_option_handle)
+        }
+        else if (this.Option_Type == 'need_fertilize_png') {
+            console.log('施肥');
+            var data = "type=1&tt=666";
+            control_anim._self = this;
+            this.https = new HttpRes(this.httpscallback.bind(control_anim._self));
+            this.https.setUrl("http://172.16.0.67:8001/future/type/change", "POST", "application/x-www-form-urlencoded", data);
+            this.https.httpInit();
+            this.Show_option_handle('User_option2', 'fertilize', playX, playY); //this.Hiden_option_handle)
+        }
+        else if (this.Option_Type == 'need_weed_png') {
+            console.log('除草');
+            var data = 'type=2&tt=666';
+            control_anim._self = this;
+            this.https = new HttpRes(this.httpscallback.bind(control_anim._self));
+            this.https.setUrl("http://172.16.0.67:8001/future/type/change", "POST", "application/x-www-form-urlencoded", data);
+            this.https.httpInit();
+            this.Show_option_handle('User_option2', 'weed', playX, playY); //this.Hiden_option_handle)
+        }
+        else if (this.Option_Type == 'need_take_png') {
+            console.log('收获');
+            var data = 'type=3&tt=666';
+            control_anim._self = this;
+            this.https = new HttpRes(this.httpscallback.bind(control_anim._self));
+            this.https.setUrl("http://172.16.0.67:8001/future/type/change", "POST", "application/x-www-form-urlencoded", data);
+            this.https.httpInit();
+            this.Show_option_handle('User_option2', 'take', playX, playY); //this.Hiden_option_handle)
+            //收获动画
+            this.land_node.start_take_anim();
+            //收获动画后清空土地数据
+            this.land_node.tipclose_handle();
+            this.land_node.farm_land_area.visible = false;
+        }
     };
     //播放浇水动画
     control_anim.prototype.Show_option_handle = function (name, Mcname, objectX, objectY) {
@@ -134,6 +123,19 @@ var control_anim = (function (_super) {
         }, this);
         //this.image.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.handle_animClick.bind(this, this.Option_Type), this)
     };
+    //-----------------动画操作组-----------------
+    //动画开始
+    control_anim.prototype.start_anim = function () {
+        this.scale.play(0);
+    };
+    //动画停止
+    control_anim.prototype.end_anim = function () {
+        this.scale.stop();
+    };
+    //动画图片更换
+    control_anim.prototype.change_image = function (src_load) {
+        this.image.source = src_load;
+    };
     //------------------------callback------------------
     control_anim.prototype.httpscallback = function () {
         var _this = this;
@@ -150,9 +152,9 @@ var control_anim = (function (_super) {
             }, 5000);
         }
         else if (res) {
-            console.log(OptionType[res.num2]);
-            // this.change_image(OptionType[res.num2])
             this.Option_Type = OptionType[res.num2];
+            //土地颜色变深
+            this.land_node.change_Landpic(landType[res.landType]);
             //记录状态值
             console.log(this.Option_Type);
         }

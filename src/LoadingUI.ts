@@ -14,6 +14,8 @@ class LoadingUI extends egret.Sprite implements RES.PromiseTaskReporter {
 
     private centerW = null
     private centerH = null
+
+    
     private createView(): void {
         this.width = GameUtil.getStageWidth();
         this.height = GameUtil.getStageHeight();

@@ -19,30 +19,30 @@ var Farmstart = (function (_super) {
         _this.scroller = null;
         _this.viewportGroup = null;
         _this.farm_land_bg = null; //背景主图
-        //第二屏替换图
-        _this.farm_normal = null;
-        //农场动物
+        //第二屏替换组 如果用户有第七块土地 则该组显示
+        _this.farm_less_six = null;
+        //农场动物组
         _this.farm_land_animal = null;
-        //农场牌
-        _this.farm_land_set = null;
+        //第二组农场展板
+        _this.group2_label_1 = null;
+        _this.group2_label_2 = null;
+        _this.group2_label_3 = null;
+        _this.group2_label_4 = null;
+        //用户信息牌
         _this.farm_group2_set = null;
         _this.farm_area = null; //农场面积
         _this.farm_name = null; //农场名称
-        //用户土地第一页
+        //用户土地第一组
         _this.farm_land_group = null;
-        _this.land_0 = null;
-        _this.land_1 = null;
-        _this.land_2 = null;
-        _this.land_3 = null;
-        _this.land_4 = null;
-        _this.land_5 = null;
-        //用户土地第二页
+        //用户土地第二组
         _this.farm_land_group2 = null;
+        //http请求实例
         _this.https = null;
         //----------动画组--------------
         //提示动画组
         _this.alert_tip = null;
         _this.alert_manage = null;
+        //-----------movieclip-------------
         //牌子
         _this.farm_set_group = null;
         //灯
@@ -63,11 +63,13 @@ var Farmstart = (function (_super) {
         return _this;
     }
     ;
+    Farmstart.prototype.complete_load = function () {
+        console.log("页面加载完成回调");
+        this.alert_tip.addEventListener('itemComplete', this.onTweenItemComplete, this);
+        this.start_tip_anim();
+    };
     Farmstart.prototype.childrenCreated = function () {
         _super.prototype.childrenCreated.call(this);
-        // 触摸穿透
-        // this.manager.touchThrough = true;
-        // this.manager.addEventListener(egret.TouchEvent.TOUCH_TAP, this.arrowEvent, this);
         this.scroller.viewport = this.viewportGroup;
         this.scroller.bounces = false;
         this.scroller.horizontalScrollBar.autoVisibility = false;
@@ -78,34 +80,27 @@ var Farmstart = (function (_super) {
         this.Farmstart_func_calls.push(this.farm_test, this.user_tip_handle);
         this.ClickEvent_Listerner(this.Farmstart_ui_objs, this.Farmstart_func_calls);
         //------------向服务器请求用户数据------------
+        // let data = 'type=0&tt=666'
         // Farmstart.self = this
-        // this.https = new HttpRes(this.callback);
-        // this.https.setUrl("http://172.16.0.67:8001/future/num", "POST", "application/x-www-form-urlencoded", '123');
+        // this.https = new HttpRes(this.httpscallback.bind(Farmstart.self));
+        // this.https.setUrl("http://172.16.0.67:8001/future/num", "POST", "application/x-www-form-urlencoded", data);
         // this.https.httpInit();
         var request = new egret.HttpRequest();
         request.responseType = egret.HttpResponseType.TEXT;
         //设置为 POST 请求
-        //let url = 'http://172.16.0.67:8001/future/num'
-        var url = 'https://www.easy-mock.com/mock/5c6cb28f241b092e864e1528/getdata';
+        var url = 'http://172.16.0.67:8001/future/num';
+        //let url = 'https://www.easy-mock.com/mock/5c6cb28f241b092e864e1528/getdata'
         request.open(url, egret.HttpMethod.POST);
         request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-        request.send("1");
+        request.send();
         // request.addEventListener(egret.Event.COMPLETE, this.onPostComplete.bind( this,null, this.test), this);
         request.addEventListener(egret.Event.COMPLETE, this.onPostComplete, this);
     };
-    //请求回调
-    // private callback() {
-    //     console.log("请求回调完成");
+    // //请求回调
+    // private httpscallback() {
     //     let res = JSON.parse(Farmstart.self.https.getDatas())
+    //     console.log(res);
     // }
-    //动画开始
-    Farmstart.prototype.start_anim = function () {
-        this.alert_tip.play(0);
-    };
-    //动画停止
-    Farmstart.prototype.end_anim = function () {
-        this.alert_tip.stop();
-    };
     //点击注册事件方法[ui_objs:响应对象组 callbacks:回调方法组]
     Farmstart.prototype.ClickEvent_Listerner = function (ui_objs, callbacks) {
         var leng = callbacks.length;
@@ -121,51 +116,40 @@ var Farmstart = (function (_super) {
         var request = evt.currentTarget;
         // console.log(request)
         var res = JSON.parse(request.response);
-        // console.log(res.num)
-        // console.log(res.num2)
-        // console.log(res.area)
-        // console.log(res.username)
-        // console.log(res.total_area)
         this.farm_name.text = res.username + "\u519C\u573A";
         this.farm_area.text = res.total_area + "\u33A1";
+        //第二块板赋值
+        this.group2_label_1.text = res.word[0];
+        this.group2_label_2.text = res.word[1];
+        this.group2_label_3.text = res.word[2];
+        this.group2_label_3.text = res.word[3];
         for (var i = 0; i < res.num.length; i++) {
             var scindex = res.num[i];
             var optionindex = res.num2[i];
             var Area = res.area[i];
+            var ltype = res.landType[i];
             console.log(OptionType[optionindex]);
             console.log(ScType[scindex]);
             console.log(res.area[i]);
-            // this.landType.push(landType[landindex])
             this.scType.push(ScType[scindex]);
             this.optionType.push(OptionType[optionindex]);
             this.landArea.push(Area);
+            this.landType.push(ltype);
         }
-        this.initLand(this.farm_land_group, this.scType, this.optionType, this.landArea);
-        //超过6条
-        // if (res.num.length > 6) {
-        //   this.farm_group2_set.visible = false
-        //     //更改土地状态
-        //     this.farm_land_group2.visible = true
-        //     this.farm_normal.visible = false
-        //         this.initLand2(this.farm_land_group2, this.scType, this.optionType, this.landArea)
-        // }
-        // //创建动画
+        this.initLand(this.farm_land_group, this.scType, this.optionType, this.landArea, this.landType);
+        //      用户土地超过6
+        if (res.num.length > 6) {
+            this.farm_group2_set.visible = false;
+            //更改土地状态
+            this.farm_land_group2.visible = true;
+            this.farm_less_six.visible = false;
+            this.initLand2(this.farm_land_group2, this.scType, this.optionType, this.landArea, this.landType);
+        }
+        //创建动画
         this.CreateAnima();
     };
-    Farmstart.prototype.complete_load = function () {
-        console.log("页面加载完成回调");
-        this.alert_tip.addEventListener('itemComplete', this.onTweenItemComplete, this);
-        this.start_anim();
-    };
-    //监听动画组某个动画播放完成
-    Farmstart.prototype.onTweenItemComplete = function (event) {
-        var item = event.data;
-        this.start_anim();
-    };
     //初始化6土地
-    Farmstart.prototype.initLand = function (parent, scType, Optype, landArea) {
-        // await this.landenum
-        // await this.landindex
+    Farmstart.prototype.initLand = function (parent, scType, Optype, landArea, landType) {
         console.log(scType);
         //Xoff,Yoff是提示用户图标的偏移
         var Xoff = 172;
@@ -179,7 +163,7 @@ var Farmstart = (function (_super) {
         pos[5] = new egret.Point(241.38, 538);
         for (var i = 0; i < pos.length; i++) {
             //创建农场土地
-            var farmland = new Farmland(i, landArea[i]);
+            var farmland = new Farmland(i, landArea[i], landType[i]);
             //创建操作状态,传入类节点
             var anim_1 = new control_anim(Optype[i], farmland);
             // console.log(Optype[2])
@@ -195,14 +179,12 @@ var Farmstart = (function (_super) {
             anim_1.change_image(Optype[i]);
             parent.addChild(farmland);
             parent.addChild(anim_1);
-            console.log(farmland.CreateLandId);
             //监听点击事件
             // farmland.addEventListener(egret.TouchEvent.TOUCH_TAP, this.farmland_handle.bind(this, i), this)
-            // anim.addEventListener(egret.TouchEvent.TOUCH_TAP, this.option_handle, this)
         }
         console.log("添加土地");
     };
-    Farmstart.prototype.initLand2 = function (parent, scType, Optype, landArea) {
+    Farmstart.prototype.initLand2 = function (parent, scType, Optype, landArea, landType) {
         console.log(scType);
         //Xoff,Yoff是提示用户图标的偏移
         var Xoff = 172;
@@ -216,9 +198,9 @@ var Farmstart = (function (_super) {
         pos[11] = new egret.Point(241.38, 538);
         for (var i = 6; i < pos.length; i++) {
             //创建农场土地
-            var farmland = new Farmland(i, landArea[i]);
+            var farmland = new Farmland(i, landArea[i], landType[i]);
             //创建操作状态
-            var anim_2 = new control_anim(Optype[i]);
+            var anim_2 = new control_anim(Optype[i], farmland);
             //设立坐标组
             farmland.$x = pos[i].x + 50;
             farmland.y = pos[i].y;
@@ -236,14 +218,19 @@ var Farmstart = (function (_super) {
         console.log("添加第二屏幕土地");
     };
     //-----------------操作回调方法----------
-    // public land_change_handle(farm_land_group, farm_land_group2) {
-    //     console.log('切换')
-    //     console.log(this.farm_land_group.visible)
-    //     console.log(this.farm_land_group2.visible)
-    //     this.farm_land_group.visible = !this.farm_land_group.visible
-    //     this.farm_land_group2.visible = !this.farm_land_group2.visible
-    // };
-    //更换姓名
+    //动画开始
+    Farmstart.prototype.start_tip_anim = function () {
+        this.alert_tip.play(0);
+    };
+    //动画停止
+    Farmstart.prototype.end_tip_anim = function () {
+        this.alert_tip.stop();
+    };
+    //监听动画组某个动画播放完成
+    Farmstart.prototype.onTweenItemComplete = function (event) {
+        var item = event.data;
+        this.start_tip_anim();
+    };
     //土地点击监听
     Farmstart.prototype.farmland_handle = function (id, evt) {
         console.log(id);
@@ -258,8 +245,6 @@ var Farmstart = (function (_super) {
         this.farm_land_light.addChild(light);
         // 创建狗动画
         var dog = GameUtil.createMovieClipByName('dog', '绿狗子');
-        // dog.width=10
-        // dog.height=10
         dog.gotoAndPlay(0, -1);
         this.farm_land_dog.addChild(dog);
     };
