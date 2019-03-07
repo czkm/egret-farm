@@ -55,11 +55,10 @@ var control_anim = (function (_super) {
         var playY = evt.localY + 20;
         //判断操作
         console.log(this.Option_Type);
-        //播放摇曳动画
-        this.land_node.start_cai_anim();
         //需要浇水
         if (this.Option_Type == 'need_water_png') {
             //Farmland.start_shake_anim()
+            this.land_node.option_type_complete.text = '浇水成功';
             var data = 'type=0&tt=666';
             control_anim._self = this;
             this.https = new HttpRes(this.httpscallback.bind(control_anim._self));
@@ -68,6 +67,7 @@ var control_anim = (function (_super) {
             this.Show_option_handle('User_option', 'water', playX, playY); //this.Hiden_option_handle)
         }
         else if (this.Option_Type == 'need_fertilize_png') {
+            this.land_node.option_type_complete.text = '施肥成功';
             console.log('施肥');
             var data = "type=1&tt=666";
             control_anim._self = this;
@@ -77,6 +77,7 @@ var control_anim = (function (_super) {
             this.Show_option_handle('User_option2', 'fertilize', playX, playY); //this.Hiden_option_handle)
         }
         else if (this.Option_Type == 'need_weed_png') {
+            this.land_node.option_type_complete.text = '除草成功';
             console.log('除草');
             var data = 'type=2&tt=666';
             control_anim._self = this;
@@ -87,6 +88,7 @@ var control_anim = (function (_super) {
         }
         else if (this.Option_Type == 'need_take_png') {
             console.log('收获');
+            this.land_node.option_type_complete.text = '收获成功';
             var data = 'type=3&tt=666';
             control_anim._self = this;
             this.https = new HttpRes(this.httpscallback.bind(control_anim._self));
@@ -113,7 +115,13 @@ var control_anim = (function (_super) {
         Option_gif.gotoAndPlay(0, 1);
         //监听动画播放完成
         Option_gif.addEventListener(egret.Event.COMPLETE, function (e, test_grop) {
+            //播放摇曳动画
             _this.land_node.start_cai_anim();
+            //完成标识
+            _this.land_node.Option_Complete();
+            setTimeout(function () {
+                _this.land_node.farm_option_complete.visible = false;
+            }, 1500);
             console.log(e.type); //1次
             Option_gif.visible = false;
             _this.test_grop.removeChild(Option_gif);

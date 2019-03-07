@@ -28,10 +28,16 @@ var Farmland = (function (_super) {
         _this.take = null;
         //土地详情管理组
         _this.farm_tip_manage = null;
+        _this.farm_is_tip = null;
         _this.farm_sc_tip = null;
         _this.farm_sc_name = null;
         _this.farm_sc_take = null;
         _this.farm_sc_area = null;
+        //用户土地无菜时显示
+        _this.farm_null_tip = null;
+        _this.option_type_complete = null;
+        //土地操作完成
+        _this.farm_option_complete = null;
         //创建时传入土地id
         _this.CreateLandId = null;
         //创建时传入土地状态
@@ -51,6 +57,7 @@ var Farmland = (function (_super) {
         if (!landArea) {
             Farmland._self.tipclose_handle();
             _this.change_Landpic('land_0_png');
+            _this.farm_null_tip.text = '此块土地还未开垦';
             console.log("土地无面积");
         }
         return _this;
@@ -81,7 +88,7 @@ var Farmland = (function (_super) {
         this.farm_tip_manage.visible = true;
         setTimeout(function () {
             _this.farm_tip_manage.visible = false;
-        }, 3000);
+        }, 2000);
     };
     //蔬菜动画开始
     Farmland.prototype.start_cai_anim = function () {
@@ -106,8 +113,14 @@ var Farmland = (function (_super) {
     Farmland.prototype.change_Caipic = function (Cai_src) {
         this.farm_land_cai.source = Cai_src;
     };
+    Farmland.prototype.Option_Complete = function () {
+        this.farm_option_complete.visible = true;
+    };
+    //控制提示显示
     Farmland.prototype.tipclose_handle = function () {
-        this.farm_land_normal.touchEnabled = false;
+        this.farm_is_tip.visible = false;
+        this.farm_null_tip.visible = true;
+        // this.farm_land_normal.touchEnabled = false
         this.farm_land_area.visible = false;
     };
     return Farmland;

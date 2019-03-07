@@ -36,6 +36,8 @@ class Farmstart extends eui.Component {
     //用户土地第二组
     public farm_land_group2: eui.Group = null;
 
+
+
     //http请求实例
     private https: HttpRes = null;
 
@@ -48,12 +50,24 @@ class Farmstart extends eui.Component {
 
 
     //-----------movieclip-------------
+
+     //牌子
+    public farm_land_arrow: eui.Group = null;
     //牌子
     public farm_set_group: eui.Group = null;
     //灯
     public farm_land_light: eui.Group = null;
     //狗子
     public farm_land_dog: eui.Group = null;
+    //农场小鸡组
+    public farm_chick0: eui.Group = null;
+    public farm_chick1: eui.Group = null;
+    public farm_chick2: eui.Group = null;
+    public farm_chick3: eui.Group = null;
+    public farm_chick4: eui.Group = null;
+
+
+
 
 
 
@@ -173,7 +187,7 @@ class Farmstart extends eui.Component {
             this.landType.push(ltype)
         }
 
-        this.initLand(this.farm_land_group, this.scType, this.optionType, this.landArea,this.landType);
+        this.initLand(this.farm_land_group, this.scType, this.optionType, this.landArea, this.landType);
 
 
         //      用户土地超过6
@@ -184,7 +198,7 @@ class Farmstart extends eui.Component {
             this.farm_land_group2.visible = true
             this.farm_less_six.visible = false
 
-            this.initLand2(this.farm_land_group2, this.scType, this.optionType, this.landArea,this.landType)
+            this.initLand2(this.farm_land_group2, this.scType, this.optionType, this.landArea, this.landType)
         }
         //创建动画
         this.CreateAnima()
@@ -194,7 +208,7 @@ class Farmstart extends eui.Component {
 
     //初始化6土地
 
-    private initLand(parent: eui.Group, scType, Optype, landArea,landType) {
+    private initLand(parent: eui.Group, scType, Optype, landArea, landType) {
         console.log(scType)
 
         //Xoff,Yoff是提示用户图标的偏移
@@ -211,7 +225,7 @@ class Farmstart extends eui.Component {
 
         for (let i = 0; i < pos.length; i++) {
             //创建农场土地
-            let farmland: Farmland = new Farmland(i, landArea[i],landType[i]);
+            let farmland: Farmland = new Farmland(i, landArea[i], landType[i]);
             //创建操作状态,传入类节点
             let anim = new control_anim(Optype[i], farmland)
             // console.log(Optype[2])
@@ -240,7 +254,7 @@ class Farmstart extends eui.Component {
     }
 
 
-    private initLand2(parent: eui.Group, scType, Optype, landArea,landType) {
+    private initLand2(parent: eui.Group, scType, Optype, landArea, landType) {
 
         console.log(scType)
         //Xoff,Yoff是提示用户图标的偏移
@@ -258,7 +272,7 @@ class Farmstart extends eui.Component {
 
         for (let i = 6; i < pos.length; i++) {
             //创建农场土地
-            let farmland: Farmland = new Farmland(i, landArea[i],landType[i]);
+            let farmland: Farmland = new Farmland(i, landArea[i], landType[i]);
             //创建操作状态
             let anim = new control_anim(Optype[i], farmland)
 
@@ -314,6 +328,13 @@ class Farmstart extends eui.Component {
 
     //创建动画集合
     public CreateAnima() {
+           //创建灯动画
+        let arrow = GameUtil.createMovieClipByName('arrow', 'arrow')
+        arrow.gotoAndPlay(0, - 1)
+        this.farm_land_arrow.addChild(arrow)
+
+
+        
         //创建灯动画
         let light = GameUtil.createMovieClipByName('farm_light', '灯')
         light.gotoAndPlay(0, - 1)
@@ -325,6 +346,28 @@ class Farmstart extends eui.Component {
 
         dog.gotoAndPlay(0, -1)
         this.farm_land_dog.addChild(dog)
+
+
+        //创建农场动画
+        let chick0 = GameUtil.createMovieClipByName('animal', 'animal1')
+        let chick1 = GameUtil.createMovieClipByName('animal', 'animal1')
+        let chick2 = GameUtil.createMovieClipByName('animal', 'animal2')
+        let chick3 = GameUtil.createMovieClipByName('animal', 'animal3')
+        let chick4 = GameUtil.createMovieClipByName('animal', 'animal4')
+
+        chick0.gotoAndPlay(0, -1)
+        chick1.gotoAndPlay(0, -1)
+        chick2.gotoAndPlay(0, -1)
+        chick3.gotoAndPlay(0, -1)
+        chick4.gotoAndPlay(0, -1)
+
+        this.farm_chick0.addChild(chick0)
+        this.farm_chick1.addChild(chick1)
+        this.farm_chick2.addChild(chick2)
+        this.farm_chick3.addChild(chick3)
+        this.farm_chick4.addChild(chick4)
+
+
 
     }
     //测试

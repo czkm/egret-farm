@@ -7,22 +7,22 @@
 				<tween:Set/>
 				<tween:To duration="250">
 					<tween:props>
-						<e:Object rotation="{1}"/>
+						<e:Object rotation="{0}" scaleY="{0.88}" y="{219.12}"/>
 					</tween:props>
 				</tween:To>
 				<tween:To duration="250">
 					<tween:props>
-						<e:Object rotation="{0}"/>
+						<e:Object rotation="{0}" scaleY="{0.96}" y="{219.04}"/>
 					</tween:props>
 				</tween:To>
 				<tween:To duration="250">
 					<tween:props>
-						<e:Object rotation="{-1}"/>
+						<e:Object rotation="{0}" scaleY="{1.11}" y="{218.89}"/>
 					</tween:props>
 				</tween:To>
-				<tween:To duration="250">
+				<tween:To duration="300">
 					<tween:props>
-						<e:Object rotation="{0}"/>
+						<e:Object rotation="{0}" scaleY="{1}" y="{219}"/>
 					</tween:props>
 				</tween:To>
 			</tween:TweenItem>
@@ -93,10 +93,17 @@
 	<e:Label id="farm_land_area" text="{data}" x="31.19" y="209" rotation="29.28" anchorOffsetX="0" width="81.47" anchorOffsetY="0" height="34"/>
 	<e:Image id="farm_land_normal" source="land_1_png" left="0" bottom="0" right="0" anchorOffsetX="1.32" anchorOffsetY="0.23" height="185" touchEnabled="true"/>
 	<e:Image id="farm_land_cai" source="DG_1_png" anchorOffsetX="155" width="310.49" anchorOffsetY="219" height="220" y="219" touchEnabled="false" pixelHitTest="true" x="170"/>
-	<e:Group id="farm_tip_manage" x="40" y="-0.38" visible="false">
+	<e:Group id="farm_tip_manage" x="40" y="-0.38" touchEnabled="false" touchThrough="false" visible="false">
 		<e:Image id="farm_sc_tip" source="land_tip_png" y="0" anchorOffsetX="0" width="260.12" anchorOffsetY="0" height="114.76" x="0"/>
-		<e:Label id="farm_sc_name" text="萝卜" y="11.38" size="30" textColor="0x000000" fontFamily="KaiTi" anchorOffsetX="0" width="100" multiline="false" verticalAlign="middle" textAlign="center" x="64"/>
-		<e:Label id="farm_sc_take" text="还有1小时收获" x="35.5" y="47.38" size="20" textColor="0x000000" fontFamily="KaiTi" anchorOffsetX="0" width="157" verticalAlign="middle" textAlign="center" multiline="false"/>
-		<e:Label id="farm_sc_area" text="99+㎡" x="46.57" y="77.38" size="20" fontFamily="KaiTi" textColor="0x000000" rotation="0.34" anchorOffsetX="0" width="133.99" anchorOffsetY="0" height="21.49" multiline="false" textAlign="center" verticalAlign="middle"/>
+		<e:Group id="farm_is_tip" x="35.5" y="11.38">
+			<e:Label id="farm_sc_name" text="萝卜" y="0" size="30" textColor="0x000000" fontFamily="KaiTi" anchorOffsetX="0" width="100" multiline="false" verticalAlign="middle" textAlign="center" x="28.5"/>
+			<e:Label id="farm_sc_take" text="还有1小时收获" x="0" y="36" size="20" textColor="0x000000" fontFamily="KaiTi" anchorOffsetX="0" width="157" verticalAlign="middle" textAlign="center" multiline="false"/>
+			<e:Label id="farm_sc_area" text="99+㎡" x="11.07" y="66" size="20" fontFamily="KaiTi" textColor="0x000000" rotation="0.34" anchorOffsetX="0" width="133.99" anchorOffsetY="0" height="21.49" multiline="false" textAlign="center" verticalAlign="middle"/>
+		</e:Group>
+		<e:Label id="farm_null_tip" text="当前这块地可没有蔬菜哦！快去蔬菜包选菜吧！" x="13.5" y="15.38" anchorOffsetX="0" width="199" anchorOffsetY="0" height="82" textAlign="center" textColor="0x000000" verticalAlign="middle" size="22" visible="false"/>
+	</e:Group>
+	<e:Group id="farm_option_complete" width="243" height="90" y="-42.27" anchorOffsetX="-1.97" anchorOffsetY="0.73" touchEnabled="false" x="41.03" visible="false">
+		<e:Image id="farm_option_bg" source="tip_board_png" y="-2" anchorOffsetX="0" width="237.03" anchorOffsetY="0" height="90" x="3"/>
+		<e:Label id="option_type_complete" text="{data}成功" anchorOffsetX="0" width="192" textAlign="center" anchorOffsetY="0" height="39" touchEnabled="false" textColor="0x000000" x="26" y="26"/>
 	</e:Group>
 </e:Skin>

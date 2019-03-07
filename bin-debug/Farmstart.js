@@ -44,11 +44,19 @@ var Farmstart = (function (_super) {
         _this.alert_manage = null;
         //-----------movieclip-------------
         //牌子
+        _this.farm_land_arrow = null;
+        //牌子
         _this.farm_set_group = null;
         //灯
         _this.farm_land_light = null;
         //狗子
         _this.farm_land_dog = null;
+        //农场小鸡组
+        _this.farm_chick0 = null;
+        _this.farm_chick1 = null;
+        _this.farm_chick2 = null;
+        _this.farm_chick3 = null;
+        _this.farm_chick4 = null;
         _this.landType = []; //土地状态数组
         _this.scType = []; //蔬菜状态数组
         _this.optionType = []; //操作状态数组
@@ -240,6 +248,10 @@ var Farmstart = (function (_super) {
     //创建动画集合
     Farmstart.prototype.CreateAnima = function () {
         //创建灯动画
+        var arrow = GameUtil.createMovieClipByName('arrow', 'arrow');
+        arrow.gotoAndPlay(0, -1);
+        this.farm_land_arrow.addChild(arrow);
+        //创建灯动画
         var light = GameUtil.createMovieClipByName('farm_light', '灯');
         light.gotoAndPlay(0, -1);
         this.farm_land_light.addChild(light);
@@ -247,6 +259,22 @@ var Farmstart = (function (_super) {
         var dog = GameUtil.createMovieClipByName('dog', '绿狗子');
         dog.gotoAndPlay(0, -1);
         this.farm_land_dog.addChild(dog);
+        //创建农场动画
+        var chick0 = GameUtil.createMovieClipByName('animal', 'animal1');
+        var chick1 = GameUtil.createMovieClipByName('animal', 'animal1');
+        var chick2 = GameUtil.createMovieClipByName('animal', 'animal2');
+        var chick3 = GameUtil.createMovieClipByName('animal', 'animal3');
+        var chick4 = GameUtil.createMovieClipByName('animal', 'animal4');
+        chick0.gotoAndPlay(0, -1);
+        chick1.gotoAndPlay(0, -1);
+        chick2.gotoAndPlay(0, -1);
+        chick3.gotoAndPlay(0, -1);
+        chick4.gotoAndPlay(0, -1);
+        this.farm_chick0.addChild(chick0);
+        this.farm_chick1.addChild(chick1);
+        this.farm_chick2.addChild(chick2);
+        this.farm_chick3.addChild(chick3);
+        this.farm_chick4.addChild(chick4);
     };
     //测试
     Farmstart.prototype.farm_test = function () {

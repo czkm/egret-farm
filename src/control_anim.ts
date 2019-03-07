@@ -69,15 +69,14 @@ class control_anim extends eui.Component {
 
 		console.log(this.Option_Type)
 
-		//播放摇曳动画
-		this.land_node.start_cai_anim();
+
 
 
 		//需要浇水
 		if (this.Option_Type == 'need_water_png') {
 			//Farmland.start_shake_anim()
 
-
+			this.land_node.option_type_complete.text = '浇水成功'
 			let data = 'type=0&tt=666'
 			control_anim._self = this
 			this.https = new HttpRes(this.httpscallback.bind(control_anim._self));
@@ -90,6 +89,8 @@ class control_anim extends eui.Component {
 
 
 		} else if (this.Option_Type == 'need_fertilize_png') {
+			this.land_node.option_type_complete.text = '施肥成功'
+
 			console.log('施肥')
 			let data = `type=1&tt=666`
 			control_anim._self = this
@@ -102,6 +103,7 @@ class control_anim extends eui.Component {
 			this.Show_option_handle('User_option2', 'fertilize', playX, playY)//this.Hiden_option_handle)
 
 		} else if (this.Option_Type == 'need_weed_png') {
+			this.land_node.option_type_complete.text = '除草成功'
 
 			console.log('除草')
 			let data = 'type=2&tt=666'
@@ -116,6 +118,7 @@ class control_anim extends eui.Component {
 
 		} else if (this.Option_Type == 'need_take_png') {
 			console.log('收获')
+			this.land_node.option_type_complete.text = '收获成功'
 
 			let data = 'type=3&tt=666'
 			control_anim._self = this
@@ -164,8 +167,14 @@ class control_anim extends eui.Component {
 
 		//监听动画播放完成
 		Option_gif.addEventListener(egret.Event.COMPLETE, (e: egret.Event, test_grop) => {
+			//播放摇曳动画
 			this.land_node.start_cai_anim();
 
+			//完成标识
+			this.land_node.Option_Complete()
+			setTimeout(() => {
+				this.land_node.farm_option_complete.visible =false
+			},1500)
 			console.log(e.type);//1次
 			Option_gif.visible = false
 			this.test_grop.removeChild(Option_gif)

@@ -30,15 +30,16 @@
 	</w:Declarations>
 	<e:Scroller id="scroller" width="750" height="1334" anchorOffsetY="0" anchorOffsetX="0" x="0" y="0">
 		<e:Group id="viewportGroup" anchorOffsetX="0" width="750" anchorOffsetY="0" height="1334" y="176">
-			<e:Image id="farm_land_bg" anchorOffsetX="0" anchorOffsetY="0" height="1500.31" width="2250" x="0" source="farm_land_bg_png" y="0"/>
-			<e:Image id="farm_group2_set" source="farm_name2_png" x="740.09" y="318.91" anchorOffsetX="0" width="123.34" anchorOffsetY="0" height="228.05"/>
-			<e:Group id="farm_land_dog" width="61.59" height="64.62" x="624.76" y="522.18" anchorOffsetX="0" anchorOffsetY="0"/>
-			<e:Group id="farm_land_light" width="200" height="200" x="926" y="-77.09" rotation="3.07"/>
+			<e:Image id="farm_land_bg" anchorOffsetX="0" anchorOffsetY="0" height="1500.31" width="2250" x="0" y="0" source="farm_land_bg_jpg"/>
+			<e:Image id="farm_group2_set" source="farm_name2_png" x="794.64" y="312.83" anchorOffsetX="0" width="123.34" anchorOffsetY="0" height="228.05"/>
+			<e:Group id="farm_land_arrow" width="90.92" height="81.82" x="833.33" y="225.77" anchorOffsetX="0" anchorOffsetY="0"/>
+			<e:Group id="farm_land_dog" width="50.15" height="52.62" x="658.28" y="498.44" anchorOffsetX="26.87" anchorOffsetY="26.06"/>
+			<e:Group id="farm_land_light" width="200" height="200" x="922.99" y="-77.09" rotation="3.07"/>
 			<e:Group id="alert_manage" width="78.79" height="78.79" x="274" y="142.69" anchorOffsetX="0" anchorOffsetY="0">
 				<e:Image id="alert_bg" source="alert_bg_png" anchorOffsetX="0" anchorOffsetY="0" height="78.79" y="0" width="78.79" x="0"/>
 				<e:Image id="alert_icon" source="alert_tip_png" x="40.03" y="40.05" anchorOffsetX="10.5" width="19.71" anchorOffsetY="24" height="46.67"/>
 			</e:Group>
-			<e:Group id="farm_set_group" x="38.23" y="243.33">
+			<e:Group id="farm_set_group" x="21.56" y="294.85">
 				<e:Image id="farm_land_set" source="farm_name_png" x="0" y="0" touchEnabled="true" anchorOffsetX="0" width="146.3" anchorOffsetY="0" height="202.99"/>
 				<e:Label id="farm_area" text="{data}" x="19.43" y="88.22" rotation="353.29" touchEnabled="false" anchorOffsetX="0" width="86.71" anchorOffsetY="0" height="32.92"/>
 				<e:Label id="farm_name" text="尤溪尤溪农场" x="9.05" y="44.8" rotation="353.97" touchEnabled="false" scaleX="1" height="34.97" size="20" anchorOffsetX="0" width="125.82" textColor="0xffffff" multiline="false" verticalAlign="middle" bold="true" border="false" anchorOffsetY="0"/>
@@ -72,19 +73,25 @@
 				</e:Group>
 			</e:Group>
 			<e:Group id="farm_land_animal" width="539.39" height="698.48" x="1572.3" y="634.73" anchorOffsetX="0" anchorOffsetY="0">
-				<e:Image source="farm_animal_png" x="194" y="143.91" anchorOffsetX="0" width="53" anchorOffsetY="0" height="29.12"/>
-				<e:Image source="farm_animal2_png" x="287.5" y="41.37" anchorOffsetX="0" width="67.73" anchorOffsetY="0" height="70.27"/>
-				<e:Image source="farm_animal2_png" x="75.27" y="176" anchorOffsetX="0" width="67.73" anchorOffsetY="0" height="70.27"/>
-				<e:Image source="farm_animal2_png" x="365.67" y="158.47" anchorOffsetX="0" width="67.73" anchorOffsetY="0" height="70.27"/>
-				<e:Image source="farm_animal3_png" x="247" y="279"/>
-				<e:Image source="farm_animal4_png" x="103.6" y="283.02" anchorOffsetX="0" width="78.8" anchorOffsetY="0" height="102.63" scale9Grid="15,18,92,113"/>
-				<e:Image source="farm_animal4_png" x="64.2" y="446.35" anchorOffsetX="0" width="78.8" anchorOffsetY="0" height="102.63" scale9Grid="15,18,92,113"/>
-				<e:Image source="farm_animal5_png" x="116.33" y="46.38" anchorOffsetX="2.19" width="79.86" anchorOffsetY="0" height="97.53"/>
 				<e:Image source="farm_animal6_png" x="289.19" y="455.66" anchorOffsetX="0" width="76.48" anchorOffsetY="0" height="84" rotation="360"/>
 				<e:Image source="farm_animal6_png" x="345.62" y="472.58" anchorOffsetX="0" width="76.48" anchorOffsetY="0" height="84" rotation="360"/>
 				<e:Image source="farm_animal7_png" x="435.09" y="373.18" anchorOffsetX="0" width="75.1" anchorOffsetY="0" height="82.48"/>
 				<e:Image source="farm_animal7_png" x="507.21" y="375.58" anchorOffsetX="0" width="75.1" anchorOffsetY="0" height="82.48"/>
+				<e:Group id="farm_animal" x="-22.52" y="54.56">
+					<e:Group id="farm_chick0" width="91.25" height="86.36" x="131.99" y="157.93" anchorOffsetX="45.62" anchorOffsetY="43.18"/>
+					<e:Group id="farm_chick1" width="91.25" height="86.36" x="153.87" y="600.74" anchorOffsetX="45.62" anchorOffsetY="43.18"/>
+					<e:Group id="farm_chick2" width="91.25" height="86.36" x="342.56" y="410.18" anchorOffsetX="45.62" anchorOffsetY="43.18"/>
+					<e:Group id="farm_chick3" width="91.25" height="86.36" x="413.18" y="167.71" anchorOffsetX="45.62" anchorOffsetY="43.18"/>
+					<e:Group id="farm_chick4" width="91.25" height="86.36" x="292.21" y="275.44" anchorOffsetX="45.62" anchorOffsetY="43.18"/>
+				</e:Group>
 			</e:Group>
 		</e:Group>
 	</e:Scroller>
+	<e:Group id="farm_seed_manage" left="0" top="0" right="0" bottom="0" touchEnabled="false" touchThrough="false" visible="false">
+		<e:Rect left="0" top="0" bottom="0" right="0" fillAlpha="0.5"/>
+		<e:Group x="148.79" y="529.73">
+			<e:Image source="land_tip_png" x="0" y="0"/>
+			<e:Label id="farm_seed_tip" text="播种成功线下24小时内为您播种" x="27.74" y="40" textColor="0x000000" textAlign="left" anchorOffsetY="0" height="130" anchorOffsetX="0" width="322" verticalAlign="middle"/>
+		</e:Group>
+	</e:Group>
 </e:Skin>

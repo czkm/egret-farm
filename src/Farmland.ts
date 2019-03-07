@@ -28,10 +28,22 @@ class Farmland extends eui.Component {
     //土地详情管理组
     public farm_tip_manage: eui.Group = null;
 
+    public farm_is_tip: eui.Group = null;
+
     public farm_sc_tip: eui.Image = null;
     public farm_sc_name: eui.Label = null;
     public farm_sc_take: eui.Label = null;
     public farm_sc_area: eui.Label = null;
+
+
+    //用户土地无菜时显示
+    public farm_null_tip: eui.Label = null;
+    public option_type_complete: eui.Label = null;
+
+
+    //土地操作完成
+    public farm_option_complete: eui.Group = null;
+
 
 
     //创建时传入土地id
@@ -66,6 +78,7 @@ class Farmland extends eui.Component {
             Farmland._self.tipclose_handle()
 
             this.change_Landpic('land_0_png')
+            this.farm_null_tip.text = '此块土地还未开垦'
             console.log("土地无面积")
         }
     }
@@ -90,13 +103,14 @@ class Farmland extends eui.Component {
 
     //土地处理
     private land_handle(this) {
+
         console.log("土地处理");
         console.log(this.CreateLandId)
 
         this.farm_tip_manage.visible = true
         setTimeout(() => {
             this.farm_tip_manage.visible = false
-        }, 3000)
+        }, 2000)
 
     }
 
@@ -133,11 +147,25 @@ class Farmland extends eui.Component {
         this.farm_land_cai.source = Cai_src;
 
     }
+    public Option_Complete() {
+        this.farm_option_complete.visible = true
+    }
 
+    //控制提示显示
     public tipclose_handle() {
-
-        this.farm_land_normal.touchEnabled = false
+        this.farm_is_tip.visible = false
+        this.farm_null_tip.visible = true
+        // this.farm_land_normal.touchEnabled = false
         this.farm_land_area.visible = false
     }
+
+    // //控制用户无土地是显示
+    //  public null_tip_handle() {
+    //     this.farm_is_tip.visible = false
+    //     this.farm_null_tip.visible = true
+    //     // this.farm_land_normal.touchEnabled = false
+    //     this.farm_land_area.visible = false
+    // }
+
 
 }
