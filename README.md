@@ -20,7 +20,7 @@
 - ResDepot egret项目采用的资源管理方式
 
 项目结构如下
-![image](https://github.com/czkm/egret-farm/blob/master/imgloader/img5.png)
+- ![image](https://github.com/czkm/egret-farm/blob/master/imgloader/img5.png)
 
 
 创建加载页面  程序初始化loading页面
@@ -40,7 +40,7 @@
 
 
 ### resource下主要文件
-![image](https://github.com/czkm/egret-farm/blob/master/imgloader/img8.png)
+- ![image](https://github.com/czkm/egret-farm/blob/master/imgloader/img8.png)
 其中 assets和 eui_skins 下的目录为系统自带的egret相关事件的皮肤 可以给与保留或者删除
 
 - myskins 自定义皮肤文件夹
@@ -50,21 +50,21 @@
 
 
 #### anim
-![image](https://github.com/czkm/egret-farm/blob/master/imgloader/img9.png)
+- ![image](https://github.com/czkm/egret-farm/blob/master/imgloader/img9.png)
 定义了一个浇水动画 
 可以通过control_anim中的Show_option_handle方法中的change_image来调用图标的变化完成浇水，施肥收获等动作
 ![image](https://github.com/czkm/egret-farm/blob/master/imgloader/img10.png)
 
 #### farm_land 
-![image](https://github.com/czkm/egret-farm/blob/master/imgloader/img11.png)
+- ![image](https://github.com/czkm/egret-farm/blob/master/imgloader/img11.png)
 定义土地状态 定义了浇水，施肥摇曳和蔬菜收获 2个动画
-![image](https://github.com/czkm/egret-farm/blob/master/imgloader/img12.png)
+- ![image](https://github.com/czkm/egret-farm/blob/master/imgloader/img12.png)
 
 其中蔬菜的品种和土地的状态通过Farmland类中的change_Landpic来改变土地状态，通过change_Caipic来改变土地上植株的变化，farm_land_area.text 来显示土地的相关面积
  
 #### farm_start 
-![image](https://github.com/czkm/egret-farm/blob/master/imgloader/img13.png)
+- ![image](https://github.com/czkm/egret-farm/blob/master/imgloader/img13.png)
 该页面是整个项目的主要ui界面  大多为简单ui其中  有1个提示用户的动画
-![image](https://github.com/czkm/egret-farm/blob/master/imgloader/img14.png)
+- ![image](https://github.com/czkm/egret-farm/blob/master/imgloader/img14.png)
 相关初始化操作在Farmstart类中调用初始化方法完成
 
