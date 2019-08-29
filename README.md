@@ -5,8 +5,10 @@
 
 ## 五蕴神农
 本项目第一阶段已经基本开发完成，因为暂时没有和后台对接，所以均为前端展示，自己封装了一些http请求方法，可以使用。运行效果如下
-![image](https://github.com/czkm/egret-farm/blob/master/imgloader/img1.png)
-![image](https://github.com/czkm/egret-farm/blob/master/imgloader/img2.png)
+
+
+- ![image](https://github.com/czkm/egret-farm/blob/master/imgloader/img1.png)
+- ![image](https://github.com/czkm/egret-farm/blob/master/imgloader/img2.png)
 
 本项目使用白鹭引擎（egret）开发 使用Typescript ，其中egret引擎已近对项目进行了封装 只需要修改部分的资源即可
 ![image](https://github.com/czkm/egret-farm/blob/master/imgloader/img3.png)
