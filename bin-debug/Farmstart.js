@@ -42,6 +42,8 @@ var Farmstart = (function (_super) {
         //提示动画组
         _this.alert_tip = null;
         _this.alert_manage = null;
+        //用户播种强提示
+        _this.farm_seed_manage = null;
         //-----------movieclip-------------
         //牌子
         _this.farm_land_arrow = null;
@@ -72,6 +74,7 @@ var Farmstart = (function (_super) {
     }
     ;
     Farmstart.prototype.complete_load = function () {
+        Farmstart._self = this;
         console.log("页面加载完成回调");
         this.alert_tip.addEventListener('itemComplete', this.onTweenItemComplete, this);
         this.start_tip_anim();
@@ -96,8 +99,8 @@ var Farmstart = (function (_super) {
         var request = new egret.HttpRequest();
         request.responseType = egret.HttpResponseType.TEXT;
         //设置为 POST 请求
-        var url = 'http://172.16.0.67:8001/future/num';
-        //let url = 'https://www.easy-mock.com/mock/5c6cb28f241b092e864e1528/getdata'
+        //let url = 'http://172.16.0.67:8001/future/num'
+        var url = 'https://www.easy-mock.com/mock/5c6cb28f241b092e864e1528/getdata';
         request.open(url, egret.HttpMethod.POST);
         request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
         request.send();
@@ -127,10 +130,12 @@ var Farmstart = (function (_super) {
         this.farm_name.text = res.username + "\u519C\u573A";
         this.farm_area.text = res.total_area + "\u33A1";
         //第二块板赋值
-        this.group2_label_1.text = res.word[0];
-        this.group2_label_2.text = res.word[1];
-        this.group2_label_3.text = res.word[2];
-        this.group2_label_3.text = res.word[3];
+        if (res.word) {
+            this.group2_label_1.text = res.word[0];
+            this.group2_label_2.text = res.word[1];
+            this.group2_label_3.text = res.word[2];
+            this.group2_label_3.text = res.word[3];
+        }
         for (var i = 0; i < res.num.length; i++) {
             var scindex = res.num[i];
             var optionindex = res.num2[i];
@@ -283,8 +288,12 @@ var Farmstart = (function (_super) {
     //
     Farmstart.prototype.user_tip_handle = function () {
         console.log('tip');
+        Farmstart._self.farm_seed_manage.visible = true;
+        setTimeout(function () {
+            Farmstart._self.farm_seed_manage.visible = false;
+        }, 2000);
     };
-    Farmstart.self = null;
+    Farmstart._self = null;
     return Farmstart;
 }(eui.Component));
 __reflect(Farmstart.prototype, "Farmstart");

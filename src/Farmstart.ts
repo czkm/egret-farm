@@ -8,7 +8,7 @@ class Farmstart extends eui.Component {
 
 
 
-    static self = null;
+    static _self = null;
     public scroller: eui.Scroller = null;
     public viewportGroup: eui.Group = null;
     public farm_land_bg: eui.Image = null; //背景主图
@@ -44,14 +44,17 @@ class Farmstart extends eui.Component {
     //----------动画组--------------
 
     //提示动画组
+
+
     private alert_tip: egret.tween.TweenGroup = null;;
 
     public alert_manage: eui.Group = null;
 
-
+    //用户播种强提示
+    public farm_seed_manage: eui.Group = null;
     //-----------movieclip-------------
 
-     //牌子
+    //牌子
     public farm_land_arrow: eui.Group = null;
     //牌子
     public farm_set_group: eui.Group = null;
@@ -92,7 +95,7 @@ class Farmstart extends eui.Component {
     }
 
     private complete_load() {
-
+        Farmstart._self = this
         console.log("页面加载完成回调")
         this.alert_tip.addEventListener('itemComplete', this.onTweenItemComplete, this);
         this.start_tip_anim();
@@ -127,8 +130,8 @@ class Farmstart extends eui.Component {
         var request = new egret.HttpRequest();
         request.responseType = egret.HttpResponseType.TEXT;
         //设置为 POST 请求
-        let url = 'http://172.16.0.67:8001/future/num'
-        //let url = 'https://www.easy-mock.com/mock/5c6cb28f241b092e864e1528/getdata'
+        //let url = 'http://172.16.0.67:8001/future/num'
+        let url = 'https://www.easy-mock.com/mock/5c6cb28f241b092e864e1528/getdata'
         request.open(url, egret.HttpMethod.POST);
         request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
         request.send();
@@ -165,11 +168,13 @@ class Farmstart extends eui.Component {
         this.farm_area.text = `${res.total_area}㎡`
 
         //第二块板赋值
+        if (res.word) {
 
-        this.group2_label_1.text = res.word[0]
-        this.group2_label_2.text = res.word[1]
-        this.group2_label_3.text = res.word[2]
-        this.group2_label_3.text = res.word[3]
+            this.group2_label_1.text = res.word[0]
+            this.group2_label_2.text = res.word[1]
+            this.group2_label_3.text = res.word[2]
+            this.group2_label_3.text = res.word[3]
+        }
 
         for (var i = 0; i < res.num.length; i++) {
             let scindex = res.num[i]
@@ -328,13 +333,13 @@ class Farmstart extends eui.Component {
 
     //创建动画集合
     public CreateAnima() {
-           //创建灯动画
+        //创建灯动画
         let arrow = GameUtil.createMovieClipByName('arrow', 'arrow')
         arrow.gotoAndPlay(0, - 1)
         this.farm_land_arrow.addChild(arrow)
 
 
-        
+
         //创建灯动画
         let light = GameUtil.createMovieClipByName('farm_light', '灯')
         light.gotoAndPlay(0, - 1)
@@ -378,6 +383,10 @@ class Farmstart extends eui.Component {
     //
     public user_tip_handle() {
         console.log('tip')
+        Farmstart._self.farm_seed_manage.visible = true
+        setTimeout(() => {
+            Farmstart._self.farm_seed_manage.visible = false
+        }, 2000)
     }
 
 
